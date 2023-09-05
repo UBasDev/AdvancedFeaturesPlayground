@@ -1,0 +1,11 @@
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\bin\Debug\net6.0\BookService.Application.deps.json
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\bin\Debug\net6.0\BookService.Application.dll
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\bin\Debug\net6.0\BookService.Application.pdb
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\obj\Debug\net6.0\BookService.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\obj\Debug\net6.0\BookService.Application.AssemblyInfoInputs.cache
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\obj\Debug\net6.0\BookService.Application.AssemblyInfo.cs
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\obj\Debug\net6.0\BookService.Application.csproj.CoreCompileInputs.cache
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\obj\Debug\net6.0\BookService.Application.dll
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\obj\Debug\net6.0\refint\BookService.Application.dll
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\obj\Debug\net6.0\BookService.Application.pdb
+D:\_personal_demos_\_.NET_Demos_\Microservice1\src\BookService\Core\BookService.Application\obj\Debug\net6.0\ref\BookService.Application.dll

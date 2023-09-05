@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "SW7g5BgrL9pPDsvKMI47xK6nRS973V+zQ3FHMzMPToA=",
+  "Source": "AuthorGrpcService",
+  "BasePath": "_content/AuthorGrpcService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

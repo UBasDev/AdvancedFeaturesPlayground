@@ -1,0 +1,2 @@
+obj/Debug/net6.0/AuthorServiceApi.cs \
+obj/Debug/net6.0/AuthorServiceApiGrpc.cs: authorServiceApi.proto

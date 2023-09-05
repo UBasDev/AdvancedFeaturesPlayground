@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "Microservice1.protos";
+package authorServiceApi;
+
+service AuthorServiceApi {
+	rpc GetAllAuthorsById(GetAllAuthorsByIdRequest) returns (GetAllAuthorsByIdResponse);
+}
+
+message GetAllAuthorsByIdRequest {
+	int32 AuthorId = 1;
+}
+
+message GetAllAuthorsByIdResponse{
+	int32 Id = 1;
+	string AuthorName = 2;
+	int32 Age = 3;
+}
