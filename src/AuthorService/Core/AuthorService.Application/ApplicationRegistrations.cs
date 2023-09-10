@@ -1,4 +1,5 @@
-﻿using IdentityModel;
+﻿using AuthorService.Application.Contexts;
+using IdentityModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,6 @@ namespace AuthorService.Application
     {
         public static IServiceCollection AddJwtAuth1(this IServiceCollection services, IConfiguration configuration)
         {
-
             services.AddAuthentication(options1 => //Burada applikasyonumuza authentication olarak `JWT`yi ekliyoruz
             {
                 options1.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

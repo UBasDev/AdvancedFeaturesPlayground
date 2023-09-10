@@ -46,17 +46,17 @@ namespace Microservice1.protos {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Microservice1.protos.GetAllAuthorsByIdRequest> __Marshaller_authorServiceApi_GetAllAuthorsByIdRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Microservice1.protos.GetAllAuthorsByIdRequest.Parser));
+    static readonly grpc::Marshaller<global::Microservice1.protos.GetAllAuthorsByMinAgeRequest> __Marshaller_authorServiceApi_GetAllAuthorsByMinAgeRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Microservice1.protos.GetAllAuthorsByMinAgeRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Microservice1.protos.GetAllAuthorsByIdResponse> __Marshaller_authorServiceApi_GetAllAuthorsByIdResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Microservice1.protos.GetAllAuthorsByIdResponse.Parser));
+    static readonly grpc::Marshaller<global::Microservice1.protos.GetAllAuthorsByMinAgeResponse> __Marshaller_authorServiceApi_GetAllAuthorsByMinAgeResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Microservice1.protos.GetAllAuthorsByMinAgeResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Microservice1.protos.GetAllAuthorsByIdRequest, global::Microservice1.protos.GetAllAuthorsByIdResponse> __Method_GetAllAuthorsById = new grpc::Method<global::Microservice1.protos.GetAllAuthorsByIdRequest, global::Microservice1.protos.GetAllAuthorsByIdResponse>(
+    static readonly grpc::Method<global::Microservice1.protos.GetAllAuthorsByMinAgeRequest, global::Microservice1.protos.GetAllAuthorsByMinAgeResponse> __Method_GetAllAuthorsByMinAgeGrpcService = new grpc::Method<global::Microservice1.protos.GetAllAuthorsByMinAgeRequest, global::Microservice1.protos.GetAllAuthorsByMinAgeResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "GetAllAuthorsById",
-        __Marshaller_authorServiceApi_GetAllAuthorsByIdRequest,
-        __Marshaller_authorServiceApi_GetAllAuthorsByIdResponse);
+        "GetAllAuthorsByMinAgeGrpcService",
+        __Marshaller_authorServiceApi_GetAllAuthorsByMinAgeRequest,
+        __Marshaller_authorServiceApi_GetAllAuthorsByMinAgeResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -69,7 +69,7 @@ namespace Microservice1.protos {
     public abstract partial class AuthorServiceApiBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Microservice1.protos.GetAllAuthorsByIdResponse> GetAllAuthorsById(global::Microservice1.protos.GetAllAuthorsByIdRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Microservice1.protos.GetAllAuthorsByMinAgeResponse> GetAllAuthorsByMinAgeGrpcService(global::Microservice1.protos.GetAllAuthorsByMinAgeRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -104,24 +104,24 @@ namespace Microservice1.protos {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Microservice1.protos.GetAllAuthorsByIdResponse GetAllAuthorsById(global::Microservice1.protos.GetAllAuthorsByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Microservice1.protos.GetAllAuthorsByMinAgeResponse GetAllAuthorsByMinAgeGrpcService(global::Microservice1.protos.GetAllAuthorsByMinAgeRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return GetAllAuthorsById(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetAllAuthorsByMinAgeGrpcService(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Microservice1.protos.GetAllAuthorsByIdResponse GetAllAuthorsById(global::Microservice1.protos.GetAllAuthorsByIdRequest request, grpc::CallOptions options)
+      public virtual global::Microservice1.protos.GetAllAuthorsByMinAgeResponse GetAllAuthorsByMinAgeGrpcService(global::Microservice1.protos.GetAllAuthorsByMinAgeRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_GetAllAuthorsById, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_GetAllAuthorsByMinAgeGrpcService, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Microservice1.protos.GetAllAuthorsByIdResponse> GetAllAuthorsByIdAsync(global::Microservice1.protos.GetAllAuthorsByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Microservice1.protos.GetAllAuthorsByMinAgeResponse> GetAllAuthorsByMinAgeGrpcServiceAsync(global::Microservice1.protos.GetAllAuthorsByMinAgeRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return GetAllAuthorsByIdAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetAllAuthorsByMinAgeGrpcServiceAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Microservice1.protos.GetAllAuthorsByIdResponse> GetAllAuthorsByIdAsync(global::Microservice1.protos.GetAllAuthorsByIdRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Microservice1.protos.GetAllAuthorsByMinAgeResponse> GetAllAuthorsByMinAgeGrpcServiceAsync(global::Microservice1.protos.GetAllAuthorsByMinAgeRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_GetAllAuthorsById, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_GetAllAuthorsByMinAgeGrpcService, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -137,7 +137,7 @@ namespace Microservice1.protos {
     public static grpc::ServerServiceDefinition BindService(AuthorServiceApiBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetAllAuthorsById, serviceImpl.GetAllAuthorsById).Build();
+          .AddMethod(__Method_GetAllAuthorsByMinAgeGrpcService, serviceImpl.GetAllAuthorsByMinAgeGrpcService).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -147,7 +147,7 @@ namespace Microservice1.protos {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, AuthorServiceApiBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_GetAllAuthorsById, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Microservice1.protos.GetAllAuthorsByIdRequest, global::Microservice1.protos.GetAllAuthorsByIdResponse>(serviceImpl.GetAllAuthorsById));
+      serviceBinder.AddMethod(__Method_GetAllAuthorsByMinAgeGrpcService, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Microservice1.protos.GetAllAuthorsByMinAgeRequest, global::Microservice1.protos.GetAllAuthorsByMinAgeResponse>(serviceImpl.GetAllAuthorsByMinAgeGrpcService));
     }
 
   }

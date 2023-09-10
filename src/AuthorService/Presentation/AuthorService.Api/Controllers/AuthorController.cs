@@ -1,18 +1,24 @@
 ﻿using AuthorService.Application.Attributes;
+using AuthorService.Application.Contexts;
 using AuthorService.Application.Domain.Entity;
 using AuthorService.Application.Enums;
 using AuthorService.Application.Models;
+using Grpc.Net.Client;
 using IdentityModel;
+using Microservice1.protos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Numerics;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Claims;
 using System.Text;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace AuthorService.Api.Controllers
 {
@@ -21,9 +27,11 @@ namespace AuthorService.Api.Controllers
     public class AuthorController : ControllerBase
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public AuthorController(IHttpContextAccessor httpContextAccessor)
+        private readonly ApplicationDbContext _dbContext;
+        public AuthorController(IHttpContextAccessor httpContextAccessor, ApplicationDbContext dbContext)
         {
             _httpContextAccessor = httpContextAccessor;
+            _dbContext = dbContext;
         }
         private RequestedUser RequestedUser
         {
@@ -118,10 +126,118 @@ namespace AuthorService.Api.Controllers
         {
             return Ok();
         }
+        public class GetAllAuthorsDto {
+            public string AuthorName { get; set; }
+            public int Age { get; set; }
+        }
         [HttpGet("[action]")]
         public async Task<IActionResult> Test4()
         {
-            var x1 = _httpContextAccessor.HttpContext?.Request;
+            var response = new List<GetAllAuthorsDto>();
+            var connection = _dbContext.Database.GetDbConnection();
+            await using (var command = _dbContext.Authors.Where(a => a.Id > 1).CreateDbCommand())
+            {
+                command.CommandTimeout = 300;
+                await connection.OpenAsync();
+                await using(var currentRow = await command.ExecuteReaderAsync())
+                {
+                    while(await currentRow.ReadAsync())
+                    {
+                    var currentAuthorName = String.IsNullOrEmpty(currentRow["AuthorName"].ToString()) ? "" : currentRow["AuthorName"].ToString();
+                        var currentAuthorAge = String.IsNullOrEmpty(currentRow["Age"].ToString()) ? 0 : Convert.ToInt32(currentRow["Age"]);
+                        var currentAuthor = new GetAllAuthorsDto()
+                        {
+                            AuthorName = currentAuthorName,
+                            Age = currentAuthorAge
+                        };
+                        response.Add(currentAuthor);
+                    }
+                }
+                await connection.CloseAsync();
+            }
+            var x1 = "sad";
+            return Ok(response);
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test5()
+        {
+            var authorsToCreate = new List<Author>() {
+                new()
+                {
+                    Age = 10,
+                    AuthorName = "Author1"
+                },
+                new()
+                {
+                    Age = 20,
+                    AuthorName = "Author2"
+                },
+                new()
+                {
+                    Age = 30,
+                    AuthorName = "Author3"
+                },
+                new()
+                {
+                    Age = 40,
+                    AuthorName = "Author4"
+                }
+            };
+            var authorToCreate = new Author();
+            
+            await _dbContext.Authors.AddRangeAsync(authorsToCreate);
+            bool bool1 = await _dbContext.Authors.AllAsync(a => a.Id > 1);
+            bool bool2 = await _dbContext.Authors.AnyAsync(a => a.Id == 1);
+            var x1 = _dbContext.Authors.AverageAsync(x => x.Age);
+            int x3 = await _dbContext.Authors.CountAsync();
+            //var x4 = await _dbContext.Authors.Distinct();
+            Author x5 = _dbContext.Authors.Where(x => x.Id > 10).ElementAt(3);
+            Author? x6 = _dbContext.Authors.ElementAtOrDefault(3);
+
+            IQueryable query1 = _dbContext.Authors.Where(a => a.Id > 2);
+            var x7 = _dbContext.Authors.Entry(x5).State; //Böylece ChangeTracker tarafından takip edilen bu `author1` objectinin mevcut stateini döndürür.
+            int x8 = _dbContext.Authors.Entry(x5).OriginalValues.GetValue<int>(nameof(Author.Age));
+            int x9 = _dbContext.Authors.Entry(x5).CurrentValues.GetValue<int>(nameof(Author.Age));
+            IEnumerable<EntityEntry<Author>> x13 = _dbContext.ChangeTracker.Entries<Author>();
+            List<EntityEntry<Author>> x14 = x13.ToList();
+
+            Author[] x20 = await _dbContext.Authors.ToArrayAsync();
+
+            PropertyValues? x10 = await _dbContext.Authors.Entry(x5).GetDatabaseValuesAsync();
+            int x11 = x10.GetValue<int>(nameof(Author.Age));
+            await _dbContext.SaveChangesAsync();
+            return Ok();
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test6()
+        {
+            var list1 = new List<string>() { "Author1", "Ahmet", "Ahmet", "Ahmet", "Mehmet", "Mehmet", "Mehmet", "Ziya", "Ziya"};
+            
+            var x1 = await _dbContext.Authors.Select(a => $"{a.AuthorName} - {a.Age}").ToListAsync();
+            var x2 = list1.Distinct().ToList();
+            var x3 = await _dbContext.Authors.Select(x => new
+            {
+                NewKey1 = x.AuthorName,
+                NewKey2 = x.Age
+            }).ToListAsync();
+            var x21 = await _dbContext.Authors.Select(a => $"{ a.AuthorName} - { a.Age}").ToListAsync();
+            var x22 = await _dbContext.Authors.Where(a => list1.Contains(a.AuthorName)).ToListAsync();
+            var x23 = await _dbContext.Authors.Select(x => x.AuthorName).Distinct().ToListAsync();
+            var x24 = await _dbContext.Authors.ToListAsync();
+            return Ok();
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test7()
+        {
+            using var channel1 = GrpcChannel.ForAddress("http://localhost:5235");
+            var client1 = new AuthorServiceApi.AuthorServiceApiClient(channel1);
+            var response1 = await client1.GetAllAuthorsByMinAgeGrpcServiceAsync(new GetAllAuthorsByMinAgeRequest() { AuthorAge = 33 });
+            return Ok(response1);
+        }
+        [HttpGet("[action]")]
+        [CustomAttributeAsync1(property1:21, property2:"Test1", property3:new string[] { "Ahmet1", "Mehmet1", "Fatma1" })]
+        public async Task<IActionResult> Test8()
+        {
             return Ok();
         }
     }

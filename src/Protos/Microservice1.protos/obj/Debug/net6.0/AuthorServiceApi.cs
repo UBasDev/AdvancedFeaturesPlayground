@@ -24,35 +24,39 @@ namespace Microservice1.protos {
     static AuthorServiceApiReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChZhdXRob3JTZXJ2aWNlQXBpLnByb3RvEhBhdXRob3JTZXJ2aWNlQXBpIiwK",
-            "GEdldEFsbEF1dGhvcnNCeUlkUmVxdWVzdBIQCghBdXRob3JJZBgBIAEoBSJI",
-            "ChlHZXRBbGxBdXRob3JzQnlJZFJlc3BvbnNlEgoKAklkGAEgASgFEhIKCkF1",
-            "dGhvck5hbWUYAiABKAkSCwoDQWdlGAMgASgFMoABChBBdXRob3JTZXJ2aWNl",
-            "QXBpEmwKEUdldEFsbEF1dGhvcnNCeUlkEiouYXV0aG9yU2VydmljZUFwaS5H",
-            "ZXRBbGxBdXRob3JzQnlJZFJlcXVlc3QaKy5hdXRob3JTZXJ2aWNlQXBpLkdl",
-            "dEFsbEF1dGhvcnNCeUlkUmVzcG9uc2VCF6oCFE1pY3Jvc2VydmljZTEucHJv",
-            "dG9zYgZwcm90bzM="));
+            "ChZhdXRob3JTZXJ2aWNlQXBpLnByb3RvEhBhdXRob3JTZXJ2aWNlQXBpIjEK",
+            "HEdldEFsbEF1dGhvcnNCeU1pbkFnZVJlcXVlc3QSEQoJYXV0aG9yQWdlGAEg",
+            "ASgFImcKHUdldEFsbEF1dGhvcnNCeU1pbkFnZVJlc3BvbnNlEkYKFWdldEFs",
+            "bEF1dGhvcnNCeU1pbkFnZRgBIAMoCzInLmF1dGhvclNlcnZpY2VBcGkuR2V0",
+            "QWxsQXV0aG9yc0J5TWluQWdlIlAKFUdldEFsbEF1dGhvcnNCeU1pbkFnZRIQ",
+            "CghhdXRob3JJZBgBIAEoBRISCgphdXRob3JOYW1lGAIgASgJEhEKCWF1dGhv",
+            "ckFnZRgDIAEoBTKYAQoQQXV0aG9yU2VydmljZUFwaRKDAQogR2V0QWxsQXV0",
+            "aG9yc0J5TWluQWdlR3JwY1NlcnZpY2USLi5hdXRob3JTZXJ2aWNlQXBpLkdl",
+            "dEFsbEF1dGhvcnNCeU1pbkFnZVJlcXVlc3QaLy5hdXRob3JTZXJ2aWNlQXBp",
+            "LkdldEFsbEF1dGhvcnNCeU1pbkFnZVJlc3BvbnNlQheqAhRNaWNyb3NlcnZp",
+            "Y2UxLnByb3Rvc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Microservice1.protos.GetAllAuthorsByIdRequest), global::Microservice1.protos.GetAllAuthorsByIdRequest.Parser, new[]{ "AuthorId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Microservice1.protos.GetAllAuthorsByIdResponse), global::Microservice1.protos.GetAllAuthorsByIdResponse.Parser, new[]{ "Id", "AuthorName", "Age" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Microservice1.protos.GetAllAuthorsByMinAgeRequest), global::Microservice1.protos.GetAllAuthorsByMinAgeRequest.Parser, new[]{ "AuthorAge" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Microservice1.protos.GetAllAuthorsByMinAgeResponse), global::Microservice1.protos.GetAllAuthorsByMinAgeResponse.Parser, new[]{ "GetAllAuthorsByMinAge" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Microservice1.protos.GetAllAuthorsByMinAge), global::Microservice1.protos.GetAllAuthorsByMinAge.Parser, new[]{ "AuthorId", "AuthorName", "AuthorAge" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class GetAllAuthorsByIdRequest : pb::IMessage<GetAllAuthorsByIdRequest>
+  public sealed partial class GetAllAuthorsByMinAgeRequest : pb::IMessage<GetAllAuthorsByMinAgeRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<GetAllAuthorsByIdRequest> _parser = new pb::MessageParser<GetAllAuthorsByIdRequest>(() => new GetAllAuthorsByIdRequest());
+    private static readonly pb::MessageParser<GetAllAuthorsByMinAgeRequest> _parser = new pb::MessageParser<GetAllAuthorsByMinAgeRequest>(() => new GetAllAuthorsByMinAgeRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<GetAllAuthorsByIdRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<GetAllAuthorsByMinAgeRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -68,7 +72,7 @@ namespace Microservice1.protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetAllAuthorsByIdRequest() {
+    public GetAllAuthorsByMinAgeRequest() {
       OnConstruction();
     }
 
@@ -76,45 +80,45 @@ namespace Microservice1.protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetAllAuthorsByIdRequest(GetAllAuthorsByIdRequest other) : this() {
-      authorId_ = other.authorId_;
+    public GetAllAuthorsByMinAgeRequest(GetAllAuthorsByMinAgeRequest other) : this() {
+      authorAge_ = other.authorAge_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetAllAuthorsByIdRequest Clone() {
-      return new GetAllAuthorsByIdRequest(this);
+    public GetAllAuthorsByMinAgeRequest Clone() {
+      return new GetAllAuthorsByMinAgeRequest(this);
     }
 
-    /// <summary>Field number for the "AuthorId" field.</summary>
-    public const int AuthorIdFieldNumber = 1;
-    private int authorId_;
+    /// <summary>Field number for the "authorAge" field.</summary>
+    public const int AuthorAgeFieldNumber = 1;
+    private int authorAge_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int AuthorId {
-      get { return authorId_; }
+    public int AuthorAge {
+      get { return authorAge_; }
       set {
-        authorId_ = value;
+        authorAge_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as GetAllAuthorsByIdRequest);
+      return Equals(other as GetAllAuthorsByMinAgeRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(GetAllAuthorsByIdRequest other) {
+    public bool Equals(GetAllAuthorsByMinAgeRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (AuthorId != other.AuthorId) return false;
+      if (AuthorAge != other.AuthorAge) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -122,7 +126,7 @@ namespace Microservice1.protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (AuthorId != 0) hash ^= AuthorId.GetHashCode();
+      if (AuthorAge != 0) hash ^= AuthorAge.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -141,9 +145,9 @@ namespace Microservice1.protos {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (AuthorId != 0) {
+      if (AuthorAge != 0) {
         output.WriteRawTag(8);
-        output.WriteInt32(AuthorId);
+        output.WriteInt32(AuthorAge);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -155,9 +159,9 @@ namespace Microservice1.protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (AuthorId != 0) {
+      if (AuthorAge != 0) {
         output.WriteRawTag(8);
-        output.WriteInt32(AuthorId);
+        output.WriteInt32(AuthorAge);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -169,8 +173,8 @@ namespace Microservice1.protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (AuthorId != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(AuthorId);
+      if (AuthorAge != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(AuthorAge);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -180,12 +184,12 @@ namespace Microservice1.protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(GetAllAuthorsByIdRequest other) {
+    public void MergeFrom(GetAllAuthorsByMinAgeRequest other) {
       if (other == null) {
         return;
       }
-      if (other.AuthorId != 0) {
-        AuthorId = other.AuthorId;
+      if (other.AuthorAge != 0) {
+        AuthorAge = other.AuthorAge;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -203,7 +207,7 @@ namespace Microservice1.protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            AuthorId = input.ReadInt32();
+            AuthorAge = input.ReadInt32();
             break;
           }
         }
@@ -222,7 +226,7 @@ namespace Microservice1.protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            AuthorId = input.ReadInt32();
+            AuthorAge = input.ReadInt32();
             break;
           }
         }
@@ -232,16 +236,16 @@ namespace Microservice1.protos {
 
   }
 
-  public sealed partial class GetAllAuthorsByIdResponse : pb::IMessage<GetAllAuthorsByIdResponse>
+  public sealed partial class GetAllAuthorsByMinAgeResponse : pb::IMessage<GetAllAuthorsByMinAgeResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<GetAllAuthorsByIdResponse> _parser = new pb::MessageParser<GetAllAuthorsByIdResponse>(() => new GetAllAuthorsByIdResponse());
+    private static readonly pb::MessageParser<GetAllAuthorsByMinAgeResponse> _parser = new pb::MessageParser<GetAllAuthorsByMinAgeResponse>(() => new GetAllAuthorsByMinAgeResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<GetAllAuthorsByIdResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<GetAllAuthorsByMinAgeResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -257,7 +261,7 @@ namespace Microservice1.protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetAllAuthorsByIdResponse() {
+    public GetAllAuthorsByMinAgeResponse() {
       OnConstruction();
     }
 
@@ -265,73 +269,44 @@ namespace Microservice1.protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetAllAuthorsByIdResponse(GetAllAuthorsByIdResponse other) : this() {
-      id_ = other.id_;
-      authorName_ = other.authorName_;
-      age_ = other.age_;
+    public GetAllAuthorsByMinAgeResponse(GetAllAuthorsByMinAgeResponse other) : this() {
+      getAllAuthorsByMinAge_ = other.getAllAuthorsByMinAge_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetAllAuthorsByIdResponse Clone() {
-      return new GetAllAuthorsByIdResponse(this);
+    public GetAllAuthorsByMinAgeResponse Clone() {
+      return new GetAllAuthorsByMinAgeResponse(this);
     }
 
-    /// <summary>Field number for the "Id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private int id_;
+    /// <summary>Field number for the "getAllAuthorsByMinAge" field.</summary>
+    public const int GetAllAuthorsByMinAgeFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Microservice1.protos.GetAllAuthorsByMinAge> _repeated_getAllAuthorsByMinAge_codec
+        = pb::FieldCodec.ForMessage(10, global::Microservice1.protos.GetAllAuthorsByMinAge.Parser);
+    private readonly pbc::RepeatedField<global::Microservice1.protos.GetAllAuthorsByMinAge> getAllAuthorsByMinAge_ = new pbc::RepeatedField<global::Microservice1.protos.GetAllAuthorsByMinAge>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int Id {
-      get { return id_; }
-      set {
-        id_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "AuthorName" field.</summary>
-    public const int AuthorNameFieldNumber = 2;
-    private string authorName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string AuthorName {
-      get { return authorName_; }
-      set {
-        authorName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Age" field.</summary>
-    public const int AgeFieldNumber = 3;
-    private int age_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int Age {
-      get { return age_; }
-      set {
-        age_ = value;
-      }
+    public pbc::RepeatedField<global::Microservice1.protos.GetAllAuthorsByMinAge> GetAllAuthorsByMinAge {
+      get { return getAllAuthorsByMinAge_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as GetAllAuthorsByIdResponse);
+      return Equals(other as GetAllAuthorsByMinAgeResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(GetAllAuthorsByIdResponse other) {
+    public bool Equals(GetAllAuthorsByMinAgeResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Id != other.Id) return false;
-      if (AuthorName != other.AuthorName) return false;
-      if (Age != other.Age) return false;
+      if(!getAllAuthorsByMinAge_.Equals(other.getAllAuthorsByMinAge_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -339,9 +314,7 @@ namespace Microservice1.protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id != 0) hash ^= Id.GetHashCode();
-      if (AuthorName.Length != 0) hash ^= AuthorName.GetHashCode();
-      if (Age != 0) hash ^= Age.GetHashCode();
+      hash ^= getAllAuthorsByMinAge_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -360,17 +333,226 @@ namespace Microservice1.protos {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Id != 0) {
+      getAllAuthorsByMinAge_.WriteTo(output, _repeated_getAllAuthorsByMinAge_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      getAllAuthorsByMinAge_.WriteTo(ref output, _repeated_getAllAuthorsByMinAge_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += getAllAuthorsByMinAge_.CalculateSize(_repeated_getAllAuthorsByMinAge_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GetAllAuthorsByMinAgeResponse other) {
+      if (other == null) {
+        return;
+      }
+      getAllAuthorsByMinAge_.Add(other.getAllAuthorsByMinAge_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            getAllAuthorsByMinAge_.AddEntriesFrom(input, _repeated_getAllAuthorsByMinAge_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            getAllAuthorsByMinAge_.AddEntriesFrom(ref input, _repeated_getAllAuthorsByMinAge_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class GetAllAuthorsByMinAge : pb::IMessage<GetAllAuthorsByMinAge>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GetAllAuthorsByMinAge> _parser = new pb::MessageParser<GetAllAuthorsByMinAge>(() => new GetAllAuthorsByMinAge());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GetAllAuthorsByMinAge> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Microservice1.protos.AuthorServiceApiReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetAllAuthorsByMinAge() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetAllAuthorsByMinAge(GetAllAuthorsByMinAge other) : this() {
+      authorId_ = other.authorId_;
+      authorName_ = other.authorName_;
+      authorAge_ = other.authorAge_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GetAllAuthorsByMinAge Clone() {
+      return new GetAllAuthorsByMinAge(this);
+    }
+
+    /// <summary>Field number for the "authorId" field.</summary>
+    public const int AuthorIdFieldNumber = 1;
+    private int authorId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int AuthorId {
+      get { return authorId_; }
+      set {
+        authorId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "authorName" field.</summary>
+    public const int AuthorNameFieldNumber = 2;
+    private string authorName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AuthorName {
+      get { return authorName_; }
+      set {
+        authorName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "authorAge" field.</summary>
+    public const int AuthorAgeFieldNumber = 3;
+    private int authorAge_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int AuthorAge {
+      get { return authorAge_; }
+      set {
+        authorAge_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GetAllAuthorsByMinAge);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GetAllAuthorsByMinAge other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (AuthorId != other.AuthorId) return false;
+      if (AuthorName != other.AuthorName) return false;
+      if (AuthorAge != other.AuthorAge) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (AuthorId != 0) hash ^= AuthorId.GetHashCode();
+      if (AuthorName.Length != 0) hash ^= AuthorName.GetHashCode();
+      if (AuthorAge != 0) hash ^= AuthorAge.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (AuthorId != 0) {
         output.WriteRawTag(8);
-        output.WriteInt32(Id);
+        output.WriteInt32(AuthorId);
       }
       if (AuthorName.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(AuthorName);
       }
-      if (Age != 0) {
+      if (AuthorAge != 0) {
         output.WriteRawTag(24);
-        output.WriteInt32(Age);
+        output.WriteInt32(AuthorAge);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -382,17 +564,17 @@ namespace Microservice1.protos {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Id != 0) {
+      if (AuthorId != 0) {
         output.WriteRawTag(8);
-        output.WriteInt32(Id);
+        output.WriteInt32(AuthorId);
       }
       if (AuthorName.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(AuthorName);
       }
-      if (Age != 0) {
+      if (AuthorAge != 0) {
         output.WriteRawTag(24);
-        output.WriteInt32(Age);
+        output.WriteInt32(AuthorAge);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -404,14 +586,14 @@ namespace Microservice1.protos {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Id != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      if (AuthorId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(AuthorId);
       }
       if (AuthorName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(AuthorName);
       }
-      if (Age != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Age);
+      if (AuthorAge != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(AuthorAge);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -421,18 +603,18 @@ namespace Microservice1.protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(GetAllAuthorsByIdResponse other) {
+    public void MergeFrom(GetAllAuthorsByMinAge other) {
       if (other == null) {
         return;
       }
-      if (other.Id != 0) {
-        Id = other.Id;
+      if (other.AuthorId != 0) {
+        AuthorId = other.AuthorId;
       }
       if (other.AuthorName.Length != 0) {
         AuthorName = other.AuthorName;
       }
-      if (other.Age != 0) {
-        Age = other.Age;
+      if (other.AuthorAge != 0) {
+        AuthorAge = other.AuthorAge;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -450,7 +632,7 @@ namespace Microservice1.protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Id = input.ReadInt32();
+            AuthorId = input.ReadInt32();
             break;
           }
           case 18: {
@@ -458,7 +640,7 @@ namespace Microservice1.protos {
             break;
           }
           case 24: {
-            Age = input.ReadInt32();
+            AuthorAge = input.ReadInt32();
             break;
           }
         }
@@ -477,7 +659,7 @@ namespace Microservice1.protos {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Id = input.ReadInt32();
+            AuthorId = input.ReadInt32();
             break;
           }
           case 18: {
@@ -485,7 +667,7 @@ namespace Microservice1.protos {
             break;
           }
           case 24: {
-            Age = input.ReadInt32();
+            AuthorAge = input.ReadInt32();
             break;
           }
         }

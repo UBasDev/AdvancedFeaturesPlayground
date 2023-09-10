@@ -1,4 +1,5 @@
 using AuthorService.Application;
+using AuthorService.Application.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddJwtAuth1(builder.Configuration);
 builder.Services.AddSwagger("Test Api Title1");
 builder.Services.AddHttpContextAccessor();

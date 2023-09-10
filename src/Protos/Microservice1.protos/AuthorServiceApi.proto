@@ -4,15 +4,19 @@ option csharp_namespace = "Microservice1.protos";
 package authorServiceApi;
 
 service AuthorServiceApi {
-	rpc GetAllAuthorsById(GetAllAuthorsByIdRequest) returns (GetAllAuthorsByIdResponse);
+	rpc GetAllAuthorsByMinAgeGrpcService(GetAllAuthorsByMinAgeRequest) returns (GetAllAuthorsByMinAgeResponse);
 }
 
-message GetAllAuthorsByIdRequest {
-	int32 AuthorId = 1;
+message GetAllAuthorsByMinAgeRequest {
+	int32 authorAge = 1;
 }
 
-message GetAllAuthorsByIdResponse{
-	int32 Id = 1;
-	string AuthorName = 2;
-	int32 Age = 3;
+message GetAllAuthorsByMinAgeResponse{
+	repeated GetAllAuthorsByMinAge getAllAuthorsByMinAge = 1;
+}
+
+message GetAllAuthorsByMinAge{
+	int32 authorId = 1;
+	string authorName = 2;
+	int32 authorAge = 3;
 }
