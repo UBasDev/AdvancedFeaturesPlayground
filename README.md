@@ -6,3 +6,4 @@ Simple implementation of JWT authentication and custom authorizations. And extra
 -CustomAttributes</br>
 -Authentication</br>
 -Authorization</br>
+-Redis implementation with all required operations.
