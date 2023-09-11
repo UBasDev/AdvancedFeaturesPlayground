@@ -2,6 +2,7 @@
 using AuthorService.Application.Contexts;
 using AuthorService.Application.Domain.Entity;
 using AuthorService.Application.Enums;
+using AuthorService.Application.Interfaces.Redis;
 using AuthorService.Application.Models;
 using Grpc.Net.Client;
 using IdentityModel;
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Numerics;
 using System.Runtime.ConstrainedExecution;
@@ -28,10 +30,12 @@ namespace AuthorService.Api.Controllers
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ApplicationDbContext _dbContext;
-        public AuthorController(IHttpContextAccessor httpContextAccessor, ApplicationDbContext dbContext)
+        private readonly IRedisCacheRepository1 _redisCacheRepository;
+        public AuthorController(IHttpContextAccessor httpContextAccessor, ApplicationDbContext dbContext, IRedisCacheRepository1 redisCacheRepository)
         {
             _httpContextAccessor = httpContextAccessor;
             _dbContext = dbContext;
+            _redisCacheRepository = redisCacheRepository;
         }
         private RequestedUser RequestedUser
         {
@@ -238,6 +242,38 @@ namespace AuthorService.Api.Controllers
         [CustomAttributeAsync1(property1:21, property2:"Test1", property3:new string[] { "Ahmet1", "Mehmet1", "Fatma1" })]
         public async Task<IActionResult> Test8()
         {
+            return Ok();
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test9()
+        {
+            await _redisCacheRepository.SetStringResponseAsync("key1", "This is just a string", TimeSpan.FromSeconds(10));
+            return Ok();
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test10()
+        {
+            var someAuthors1 = await _dbContext.Authors.ToListAsync();
+            var serializedResults1 = JsonConvert.SerializeObject(someAuthors1);
+            await _redisCacheRepository.SetStringResponseAsync("key1", serializedResults1, TimeSpan.FromSeconds(10));
+            return Ok();
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test11()
+        {
+            var cachedResponse1 = await _redisCacheRepository.GetCachedStringResponseByKeyAsync("key1");
+            return Ok(cachedResponse1);
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test12()
+        {
+            var cachedResponse1 = await _redisCacheRepository.GetCachedResponseByKeyAsync<List<Author>>("key1");
+            return Ok(cachedResponse1);
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test13()
+        {
+            await _redisCacheRepository.RemoveWithMultipleWildCardsAsync(new string[] { "ke" });
             return Ok();
         }
     }

@@ -1,5 +1,6 @@
 using AuthorService.Application;
 using AuthorService.Application.Contexts;
+using AuthorService.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddJwtAuth1(builder.Configuration);
+builder.Services.AddRedis1(builder.Configuration);
 builder.Services.AddSwagger("Test Api Title1");
 builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
