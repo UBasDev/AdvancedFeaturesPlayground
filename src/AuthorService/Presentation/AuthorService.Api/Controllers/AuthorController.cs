@@ -17,6 +17,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.Mime;
 using System.Numerics;
 using System.Runtime.ConstrainedExecution;
@@ -33,11 +36,13 @@ namespace AuthorService.Api.Controllers
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ApplicationDbContext _dbContext;
         private readonly IRedisCacheRepository1 _redisCacheRepository;
-        public AuthorController(IHttpContextAccessor httpContextAccessor, ApplicationDbContext dbContext, IRedisCacheRepository1 redisCacheRepository)
+        private readonly HttpClient _httpClient;
+        public AuthorController(IHttpContextAccessor httpContextAccessor, ApplicationDbContext dbContext, IRedisCacheRepository1 redisCacheRepository, HttpClient httpClient)
         {
             _httpContextAccessor = httpContextAccessor;
             _dbContext = dbContext;
             _redisCacheRepository = redisCacheRepository;
+            _httpClient = httpClient;
         }
         private RequestedUser RequestedUser
         {
@@ -299,8 +304,51 @@ namespace AuthorService.Api.Controllers
 
                 enableRangeProcessing: true, //???
 
-                entityTag: EntityTagHeaderValue.Any //Fileın e-tag`ının herhangi bir value olacağını set ederiz.
+                entityTag: Microsoft.Net.Http.Headers.EntityTagHeaderValue.Any //Fileın e-tag`ının herhangi bir value olacağını set ederiz.
             );
+        }
+        public class Class1
+        {
+            public int UserId { get; set; }
+            public int Id { get; set; }
+            public string Title { get; set; }
+            public string Body { get; set; }
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test15(CancellationToken cancellationToken)
+        {
+            var videoFilePath1 = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\", "Core", "AuthorService.Application", "StaticFiles", "video1.mp4");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(scheme: "sad", parameter: "sad");
+
+            
+            var content = new ContentResult()
+            {
+                Content= "sadas",
+                ContentType= "application/json",
+                StatusCode = (int)HttpStatusCode.OK
+            };
+            _httpClient.Timeout = TimeSpan.FromSeconds(30);
+            var objectToSend1 = new Class1
+            {
+                UserId = 1,
+                Id = 2,
+                Title= "title1",
+                Body= "body1"
+            };
+            var content2 = new StringContent(JsonConvert.SerializeObject(objectToSend1), encoding: Encoding.UTF8, mediaType: "application/json");
+
+            var response2 = await _httpClient.GetAsync("sadsa", completionOption: HttpCompletionOption.ResponseContentRead, cancellationToken: cancellationToken);
+            var response1 = await _httpClient.PostAsync("https://jsonplaceholder.typicode.com/posts", content2, cancellationToken);
+            if (!response1.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Something wrong");
+            }
+            string responseBody1 = await response1.Content.ReadAsStringAsync(cancellationToken);
+            Class1? responseBody2 = await response1.Content.ReadFromJsonAsync<Class1>(new System.Text.Json.JsonSerializerOptions()
+            {
+
+            }, cancellationToken);
+            return Ok(responseBody1);
         }
     }
 }
