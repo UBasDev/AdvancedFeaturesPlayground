@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Microservice1.protos
-build_property.ProjectDir = D:\_personal_demos_\_.NET_Demos_\Microservice1\src\Protos\Microservice1.protos\
+build_property.ProjectDir = D:\_personal_demos_\_.NET_Demos_\Microservice2\src\Protos\Microservice1.protos\

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E3kUE1AeppRjSxuBVauP++4UrFxOtbAuXC6dMHdV0cdHWxWahDffa57CeaGvBsgxvGL6PS2oHboVx72nJ4MMcQ==",
+  "dgSpecHash": "aln/gjmyaWqmI+ziJY0TrAKL/FYroobk6dSdDZWEmn9QnjRHPfeGdCvfcGmaVoXex/vhJVdynXLsR3eP/nzvLg==",
   "success": true,
-  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
+  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\identitymodel\\6.2.0\\identitymodel.6.2.0.nupkg.sha512",
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.21\\microsoft.aspnetcore.authentication.jwtbearer.6.0.21.nupkg.sha512",

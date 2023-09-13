@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj": {}
+    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj": {}
   },
   "projects": {
-    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj": {
+    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj",
+        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj",
         "projectName": "BookService.Application",
-        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj",
+        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj",
         "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Core\\BookService.Application\\obj\\",
+        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Core\\BookService.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",

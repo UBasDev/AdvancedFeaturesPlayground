@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0DA+cNtGDVwT8cfDCVPFeSlGaD/Y4jjz+a9gF9dOSJLVBPr3Yqhz7AjYVMLpv/5zF7ro4Zup4WDAbCy87D60+A==",
+  "dgSpecHash": "WmB1aIRsn6cJrQMMPTmSFrtFaMJsLEnH5C1ZTJOuhlrzFr91KHljvCAoL/GinR8rMbq3F1VFUCKxuBBMbtQfUg==",
   "success": true,
-  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorGrpcService\\AuthorGrpcService.csproj",
+  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorGrpcService\\AuthorGrpcService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\google.protobuf\\3.23.1\\google.protobuf.3.23.1.nupkg.sha512",
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\grpc.aspnetcore\\2.56.0\\grpc.aspnetcore.2.56.0.nupkg.sha512",

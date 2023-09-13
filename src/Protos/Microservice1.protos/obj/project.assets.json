@@ -718,11 +718,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj",
+      "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj",
       "projectName": "Microservice1.protos",
-      "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj",
+      "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj",
       "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-      "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\obj\\",
+      "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",

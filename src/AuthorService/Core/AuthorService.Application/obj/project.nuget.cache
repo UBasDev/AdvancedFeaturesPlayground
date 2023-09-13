@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nc/Pd2acUd749POWubaHNHWpQewef/i15OkFBrlcSU/BaEbEcj1hGRVuQ12YKdWERIySjNnJmSM5lGQAs2AcDQ==",
+  "dgSpecHash": "HXAh+fbMYxL6P9YhjanW0wyAcgI2hMjgV/Gs9/uAb9XUzgr/x7/IRoBjCmc0cpg+hrsf0evVsb8BQ3e5Nr2Vlw==",
   "success": true,
-  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
+  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\identitymodel\\6.2.0\\identitymodel.6.2.0.nupkg.sha512",

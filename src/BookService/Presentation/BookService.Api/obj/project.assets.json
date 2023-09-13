@@ -442,11 +442,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Presentation\\BookService.Api\\BookService.Api.csproj",
+      "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Presentation\\BookService.Api\\BookService.Api.csproj",
       "projectName": "BookService.Api",
-      "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Presentation\\BookService.Api\\BookService.Api.csproj",
+      "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Presentation\\BookService.Api\\BookService.Api.csproj",
       "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-      "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Presentation\\BookService.Api\\obj\\",
+      "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Presentation\\BookService.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",

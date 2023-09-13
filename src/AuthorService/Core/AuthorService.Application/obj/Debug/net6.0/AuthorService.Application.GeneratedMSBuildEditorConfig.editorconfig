@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AuthorService.Application
-build_property.ProjectDir = D:\_personal_demos_\_.NET_Demos_\Microservice1\src\AuthorService\Core\AuthorService.Application\
+build_property.ProjectDir = D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\

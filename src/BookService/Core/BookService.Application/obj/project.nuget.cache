@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u78Dkn33Qc/JfgOqS45+EWbWDNHr2tUwFincmV4RZcd4E8Bjzgiuba8dDuJpXtQ3xea+xGcNaFa9p7cQp40QnQ==",
+  "dgSpecHash": "CdTc38WGNrj9r4KT8355mUj+O2Nam60w5tLbLGia6k5x9dA4hDnIAehRbburoQEn2cDuSGJTO9c+TFCGtdeFSw==",
   "success": true,
-  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj",
+  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\BookService\\Core\\BookService.Application\\BookService.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

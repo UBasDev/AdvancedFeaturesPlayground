@@ -2814,11 +2814,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
+      "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
       "projectName": "AuthorService.Persistence",
-      "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
+      "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
       "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-      "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\obj\\",
+      "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2835,8 +2835,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj": {
-              "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj"
+            "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj": {
+              "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj"
             }
           }
         }

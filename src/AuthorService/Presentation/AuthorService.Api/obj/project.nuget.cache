@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gu5RWUzejxBvzaJa5AWPzMmCfotu1uwF7ldzPs7QhFckCVcP6OC9hfOwIkLcr4Q0DZR+TlgkcP6XxC/lFyQ1dQ==",
+  "dgSpecHash": "1av/v4mv1EQvPhwdMEbVRqS+PXb8bqc6LtvzUY7q2deHTK6zn1ZEajBJH/0BrNOVOHJnxg4Mo3O15IoGpdOwMw==",
   "success": true,
-  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj",
+  "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\google.protobuf\\3.23.1\\google.protobuf.3.23.1.nupkg.sha512",
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\grpc.aspnetcore\\2.56.0\\grpc.aspnetcore.2.56.0.nupkg.sha512",

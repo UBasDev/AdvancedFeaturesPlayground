@@ -14,8 +14,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Mime;
 using System.Numerics;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Claims;
@@ -275,6 +277,30 @@ namespace AuthorService.Api.Controllers
         {
             await _redisCacheRepository.RemoveWithMultipleWildCardsAsync(new string[] { "ke" });
             return Ok();
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test14()
+        {
+            var videoFilePath1 = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\", "Core", "AuthorService.Application", "StaticFiles", "video1.mp4");
+            var fileStreamOptions1 = new FileStreamOptions
+            {
+                BufferSize = 8192,
+                Mode = FileMode.Open,
+                Access = FileAccess.Read,
+                Options = FileOptions.Asynchronous,
+                Share = FileShare.Read
+            };
+            return PhysicalFile(
+                videoFilePath1, //Fİleın pathını set ederiz.
+
+                "video/mp4", //Responseun Content-Type`ını set ederiz.
+
+                lastModified: DateTimeOffset.Now, //Fileın `lastModified` propertysini set ederiz.
+
+                enableRangeProcessing: true, //???
+
+                entityTag: EntityTagHeaderValue.Any //Fileın e-tag`ının herhangi bir value olacağını set ederiz.
+            );
         }
     }
 }

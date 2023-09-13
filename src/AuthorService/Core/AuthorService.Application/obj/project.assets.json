@@ -3082,11 +3082,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
+      "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
       "projectName": "AuthorService.Application",
-      "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
+      "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
       "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-      "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\obj\\",
+      "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",

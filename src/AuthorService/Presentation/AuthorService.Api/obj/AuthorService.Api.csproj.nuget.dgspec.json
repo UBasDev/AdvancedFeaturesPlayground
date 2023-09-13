@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj": {}
+    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj": {}
   },
   "projects": {
-    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj": {
+    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
+        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
         "projectName": "AuthorService.Application",
-        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
+        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj",
         "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\obj\\",
+        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -109,14 +109,14 @@
         }
       }
     },
-    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj": {
+    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
+        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
         "projectName": "AuthorService.Persistence",
-        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
+        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
         "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\obj\\",
+        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -133,8 +133,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj": {
-                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj"
+              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj": {
+                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj"
               }
             }
           }
@@ -182,14 +182,14 @@
         }
       }
     },
-    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj": {
+    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj",
+        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj",
         "projectName": "AuthorService.Api",
-        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj",
+        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Presentation\\AuthorService.Api\\AuthorService.Api.csproj",
         "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Presentation\\AuthorService.Api\\obj\\",
+        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Presentation\\AuthorService.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -206,14 +206,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj": {
-                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj"
+              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj": {
+                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Core\\AuthorService.Application\\AuthorService.Application.csproj"
               },
-              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj": {
-                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj"
+              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj": {
+                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj"
               },
-              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj": {
-                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj"
+              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj": {
+                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj"
               }
             }
           }
@@ -266,14 +266,14 @@
         }
       }
     },
-    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj": {
+    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj",
+        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj",
         "projectName": "Microservice1.protos",
-        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj",
+        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj",
         "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
-        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice1\\src\\Protos\\Microservice1.protos\\obj\\",
+        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",
