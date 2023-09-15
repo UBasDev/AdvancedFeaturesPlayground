@@ -318,7 +318,6 @@ namespace AuthorService.Api.Controllers
         public async Task<IActionResult> Test15(CancellationToken cancellationToken)
         {
             var videoFilePath1 = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\", "Core", "AuthorService.Application", "StaticFiles", "video1.mp4");
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(scheme: "sad", parameter: "sad");
 
             
             var content = new ContentResult()
@@ -337,18 +336,38 @@ namespace AuthorService.Api.Controllers
             };
             var content2 = new StringContent(JsonConvert.SerializeObject(objectToSend1), encoding: Encoding.UTF8, mediaType: "application/json");
 
-            var response2 = await _httpClient.GetAsync("sadsa", completionOption: HttpCompletionOption.ResponseContentRead, cancellationToken: cancellationToken);
             var response1 = await _httpClient.PostAsync("https://jsonplaceholder.typicode.com/posts", content2, cancellationToken);
             if (!response1.IsSuccessStatusCode)
             {
                 Console.WriteLine("Something wrong");
             }
+            var x1 = await response1.RequestMessage.Content.ReadAsStringAsync();
+            var x2 = await response1.RequestMessage.Content.ReadFromJsonAsync<Class1>();
+            var x3 = response1.RequestMessage.Headers.FirstOrDefault(x => x.Key == "header1");
+            var x4 = response1.RequestMessage.Method;
+            var x5 = response1.RequestMessage.Options;
+            var x6 = response1.RequestMessage.Properties;
+            var x7 = response1.RequestMessage.RequestUri;
+            var x8 = response1.RequestMessage.Version;
+            var x9 = response1.RequestMessage.VersionPolicy;
+            
             string responseBody1 = await response1.Content.ReadAsStringAsync(cancellationToken);
             Class1? responseBody2 = await response1.Content.ReadFromJsonAsync<Class1>(new System.Text.Json.JsonSerializerOptions()
             {
 
             }, cancellationToken);
             return Ok(responseBody1);
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test16(CancellationToken cancellationToken)
+        {
+            var result1 = new ContentResult()
+            {
+                Content= "asd",
+                ContentType= MediaTypeNames.Application.Json,
+                StatusCode = (int)HttpStatusCode.Created
+            };
+            return result1;
         }
     }
 }
