@@ -39,7 +39,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorGrpcService", "src\AuthorService\Infrastructure\Persistence\AuthorGrpcService\AuthorGrpcService.csproj", "{07AEF8E1-F6DA-4C34-92F4-EEABDF515886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorService.Persistence", "src\AuthorService\Infrastructure\Persistence\AuthorService.Persistence\AuthorService.Persistence.csproj", "{32A0568A-739E-4FA0-A265-BE7902E92D8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorService.Persistence", "src\AuthorService\Infrastructure\Persistence\AuthorService.Persistence\AuthorService.Persistence.csproj", "{32A0568A-739E-4FA0-A265-BE7902E92D8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{7887EC6E-A007-4979-90CE-F258BEC08608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "src\ApiGateway\ApiGateway\ApiGateway.csproj", "{BF16E38A-62AF-44BD-9C56-C8495BF858C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +79,10 @@ Global
 		{32A0568A-739E-4FA0-A265-BE7902E92D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32A0568A-739E-4FA0-A265-BE7902E92D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32A0568A-739E-4FA0-A265-BE7902E92D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF16E38A-62AF-44BD-9C56-C8495BF858C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF16E38A-62AF-44BD-9C56-C8495BF858C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF16E38A-62AF-44BD-9C56-C8495BF858C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF16E38A-62AF-44BD-9C56-C8495BF858C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +106,8 @@ Global
 		{CEA0ADF9-80EF-43FC-8870-E7295BB0CE8A} = {A299242B-6B7A-4F64-874C-A1A1BA2AAB78}
 		{07AEF8E1-F6DA-4C34-92F4-EEABDF515886} = {A5075D95-75F9-4E91-BA80-C928A77F449A}
 		{32A0568A-739E-4FA0-A265-BE7902E92D8A} = {A5075D95-75F9-4E91-BA80-C928A77F449A}
+		{7887EC6E-A007-4979-90CE-F258BEC08608} = {B8BC5BC6-AE13-4B44-B123-9D52B5289FA6}
+		{BF16E38A-62AF-44BD-9C56-C8495BF858C1} = {7887EC6E-A007-4979-90CE-F258BEC08608}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCCACAA9-B4DB-4C2E-9523-F6209997513F}

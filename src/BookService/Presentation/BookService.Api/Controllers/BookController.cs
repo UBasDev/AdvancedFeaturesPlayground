@@ -8,9 +8,9 @@ namespace BookService.Api.Controllers
     public class BookController : ControllerBase
     {
         [HttpGet("[action]")]
-        public IActionResult test1()
+        public IActionResult Test1()
         {
-            return Ok();
+            return Ok("Book Controller works!");
         }
     }
 }

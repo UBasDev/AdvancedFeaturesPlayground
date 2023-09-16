@@ -369,5 +369,39 @@ namespace AuthorService.Api.Controllers
             };
             return result1;
         }
+        [HttpGet("[action]")]
+        public async Task Test17(CancellationToken cancellationToken, [FromQuery] string query1)
+        {
+            HttpContext.Response.StatusCode = (int)HttpStatusCode.Created;
+            string x1 = HttpContext.Response.Headers.FirstOrDefault(x => x.Key == "header1").Value;
+            HttpContext.Response.Headers.Add("header1", "value1");
+
+            var contextFromIOC1 = HttpContext.RequestServices.GetRequiredService<ApplicationDbContext>(); //Gelen requestin bulunduğu IOC içerisindeki aktif servislerden herhangi birisine erişmemizi sağlar.
+            var x2 = await contextFromIOC1.Authors.ToListAsync();
+
+            await HttpContext.Response.WriteAsJsonAsync(new
+            {
+                Property1= "value1",
+                Property2 = "value2",
+            }, cancellationToken);
+            var x3 = HttpContext.Request.Method;
+            string x4 = HttpContext.Request.PathBase;
+            string x5 = HttpContext.Request.Path;
+            var x6 = HttpContext.Request.Query.FirstOrDefault(q => q.Key == "query1").Value;
+            var x8 = Environment.MachineName;
+            string x9 = Environment.UserName;
+            var x33 = Environment.OSVersion;
+            string x10 = Environment.OSVersion.VersionString;
+            string x11 = Environment.OSVersion.ServicePack;
+            string x12 = Environment.CurrentDirectory;
+            var x13 = Environment.CurrentManagedThreadId;
+            var x14 = Environment.ProcessId;
+            var x15 = Environment.ProcessPath;
+            var x16 = Environment.ProcessorCount;
+            var x17 = Environment.Is64BitOperatingSystem;
+            var x18 = Environment.Is64BitProcess;
+            var x19 = Environment.UserDomainName;
+            var x20 = Environment.UserInteractive;
+        }
     }
 }

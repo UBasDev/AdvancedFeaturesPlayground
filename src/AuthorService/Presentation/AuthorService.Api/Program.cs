@@ -17,6 +17,7 @@ builder.Services.AddJwtAuth1(builder.Configuration);
 builder.Services.AddRedis1(builder.Configuration);
 builder.Services.AddSwagger("Test Api Title1");
 builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
