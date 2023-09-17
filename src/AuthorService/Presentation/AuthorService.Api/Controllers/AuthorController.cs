@@ -403,5 +403,36 @@ namespace AuthorService.Api.Controllers
             var x19 = Environment.UserDomainName;
             var x20 = Environment.UserInteractive;
         }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test18([FromQuery] string requestBody)
+        {
+            var allClaims1 = ParseClaimsFromJwt(requestBody);
+
+
+            var fullname1 = allClaims1.FirstOrDefault(t => t.Type == "fullname")?.Value;
+
+            var role1 = allClaims1.FirstOrDefault(t => t.Type == JwtClaimTypes.Role)?.Value;
+            
+            return Ok(allClaims1);
+        }
+
+        public static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)
+        {
+            var payload = jwt.Split('.')[1];
+            var jsonBytes = ParseBase64WithoutPadding(payload);
+            var keyValuePairs = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(jsonBytes);
+            return keyValuePairs.Select(kvp => new Claim(kvp.Key, kvp.Value.ToString()));
+        }
+
+        private static byte[] ParseBase64WithoutPadding(string base64)
+        {
+            switch (base64.Length % 4)
+            {
+                case 2: base64 += "=="; break;
+                case 3: base64 += "="; break;
+            }
+            return Convert.FromBase64String(base64);
+        }
     }
 }
