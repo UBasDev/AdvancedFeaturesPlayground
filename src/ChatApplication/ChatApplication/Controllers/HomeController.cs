@@ -15,12 +15,15 @@ namespace ChatApplication.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("~/Views/Home/Index.cshtml", model: new
+            {
+                Property1= "value1",
+            });
         }
 
         public IActionResult Privacy()
         {
-            return View();
+            return View("~/Views/Home/Privacy.cshtml");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
