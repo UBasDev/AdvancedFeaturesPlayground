@@ -434,5 +434,10 @@ namespace AuthorService.Api.Controllers
             }
             return Convert.FromBase64String(base64);
         }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test19()
+        {
+            return Ok();
+        }
     }
 }
