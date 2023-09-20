@@ -39,3 +39,10 @@
 <script src="~/lib/alertify/alertify.js"></script>
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/signalr/chat.js"></script>
+<script type="text/javascript">
+    const globalSpinnerElement = document.getElementById("globalSpinnerWrapper");
+    if (!globalSpinnerElement.classList.contains("spinnerActive")) {
+        globalSpinnerElement.classList.remove("spinnerInactive")
+        globalSpinnerElement.classList.add("spinnerActive")
+    }
+</script>
