@@ -1,0 +1,15 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewData["Title"] = "ChatLoginPage";
+}
+
+<form asp-controller="Chat" asp-action="ChatHomepage" method="post">
+    <input type="text" name="Username" value="" placeholder="Username: "/>
+    <input type="text" name="City" value="" placeholder="City: " />
+    <input type="number" name="Age" value="" placeholder="Age: " />
+    <button type="submit">Ready to meet with strangers</button>
+</form>
+

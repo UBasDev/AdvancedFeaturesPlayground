@@ -22,5 +22,9 @@ namespace ChatApplication.Hubs
             }
             await Clients.All.SendAsync(method: "DisconnectedChannel", $"User disconnected with {Context.ConnectionId} id");
         }
+        public async Task SendMessageServerListener(string user, string message)
+        {
+            await Clients.All.SendAsync("ReceiveMessageClientListener", user, message);
+        }
     }
 }
