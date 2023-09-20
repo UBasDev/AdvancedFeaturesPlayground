@@ -11,4 +11,9 @@ Simple implementation of JWT authentication and custom authorizations. And extra
 -Authorization</br>
 -Redis implementation with all required operations</br>
 -ApiGateway</br>
--Ocelot implementation.
+-Ocelot implementation.</br>
+-SignalR for client and server.</br>
+-ChatApplication[Ongoing]</br>
+-Bootstrap</br>
+-AlertifyJS</br>
+-RazorPages
