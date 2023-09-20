@@ -15,7 +15,7 @@ namespace ChatApplication.Hubs
             await Clients.All.SendAsync(method: "ConnectedChannel", $"User connected with {Context.ConnectionId} id");
             if(WaitingQueueConnectionIdList.Count > 0)
             {
-                await Clients.Client(WaitingQueueConnectionIdList[0]).SendAsync(method: "ConnectedChannel", );
+                await Clients.Client(WaitingQueueConnectionIdList[0]).SendAsync(method: "ConnectedChannel", Context.ConnectionId);
             }
         }
 
