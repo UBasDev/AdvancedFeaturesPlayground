@@ -8,14 +8,18 @@
 @{
     ViewData["Title"] = "ChatHomepage";
 }
-@model dynamic
+@model ChatLoginModel
+
+<link rel="stylesheet" href="~/lib/alertify/css/alertify.min.css" />
+<link rel="stylesheet" href="~/lib/alertify/css/themes/default.min.css" />
+
 <div>
     <div class="container">
         <div class="row text-center">
             <p class="col-12">Current User Information: </p>
             <p id="chatUsername" class="col-12">@Model.Username</p>
             <p class="col-12">@Model.Age</p>
-            <p class="col-12">@Model.City</p>
+            <p class="col-12">@Model.Country</p>
         </div>
         <div class="row">
             <p class="col-2">Your Message: </p>
@@ -32,5 +36,6 @@
         </div>
     </div>
 </div>
+<script src="~/lib/alertify/alertify.js"></script>
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/signalr/chat.js"></script>

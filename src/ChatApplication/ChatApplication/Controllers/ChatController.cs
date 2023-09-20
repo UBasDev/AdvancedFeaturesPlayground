@@ -1,16 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ChatApplication.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 
 namespace ChatApplication.Controllers
 {
     public class ChatController : Controller
     {
-        public class Class1
-        {
-            public string? Username { get; set; } = String.Empty;
-            public string? City { get; set; } = String.Empty;
-            public byte? Age { get; set; } = 0;
-        }
+        
         public IActionResult ChatLogin()
         {
             return View("~/Views/Chat/ChatLoginPage.cshtml");
@@ -20,20 +16,15 @@ namespace ChatApplication.Controllers
             try
             {
                 var formObject = Request.Form;
-                var x1 = String.IsNullOrEmpty(formObject["Username"]) ? StringValues.Empty : formObject["Username"];
-                var x2 = String.IsNullOrEmpty(formObject["City"]) ? StringValues.Empty : formObject["City"];
-                var x3 = String.IsNullOrEmpty(formObject["Age"]) ? Byte.MinValue : Convert.ToByte(formObject["Age"]);
-                var formValues = new Class1()
+                const string usernameFormKey = "Username";
+                const string countryFormKey = "Country";
+                const string ageFormKey = "Age";
+
+                return View("~/Views/Chat/ChatHomePage.cshtml", new ChatLoginModel
                 {
-                    Username = String.IsNullOrEmpty(formObject["Username"]) ? StringValues.Empty : formObject["Username"],
-                    City = String.IsNullOrEmpty(formObject["City"]) ? StringValues.Empty : formObject["City"],
-                    Age = String.IsNullOrEmpty(formObject["Age"]) ? Byte.MinValue : Convert.ToByte(formObject["Age"]),
-                };
-                return View("~/Views/Chat/ChatHomePage.cshtml", new
-                {
-                    Username = formValues.Username,
-                    City = formValues.City,
-                    Age = formValues.Age,
+                    Username = String.IsNullOrEmpty(formObject[usernameFormKey]) ? StringValues.Empty : formObject[usernameFormKey],
+                    Country = String.IsNullOrEmpty(formObject[countryFormKey]) ? StringValues.Empty : formObject[countryFormKey],
+                    Age = String.IsNullOrEmpty(formObject[ageFormKey]) ? Byte.MinValue : Convert.ToByte(formObject[ageFormKey]),
                 });
             }catch(Exception ex)
             {

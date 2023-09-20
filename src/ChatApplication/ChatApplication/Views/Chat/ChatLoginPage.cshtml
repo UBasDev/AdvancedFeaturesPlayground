@@ -5,11 +5,11 @@
 @{
     ViewData["Title"] = "ChatLoginPage";
 }
-
+@model ChatLoginModel
 <form asp-controller="Chat" asp-action="ChatHomepage" method="post">
-    <input type="text" name="Username" value="" placeholder="Username: "/>
-    <input type="text" name="City" value="" placeholder="City: " />
-    <input type="number" name="Age" value="" placeholder="Age: " />
+    <input asp-for="@Model.Username" value="" placeholder="Username: "/>
+    <input asp-for="@Model.Country" value="" placeholder="Country: " />
+    <input asp-for="@Model.Age" value="" placeholder="Age: " />
     <button type="submit">Ready to meet with strangers</button>
 </form>
 
