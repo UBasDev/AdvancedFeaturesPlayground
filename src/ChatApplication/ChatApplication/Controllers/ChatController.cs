@@ -1,4 +1,4 @@
-﻿using ChatApplication.Models;
+﻿using ChatApplication.Models.Chat;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 
