@@ -1,0 +1,15 @@
+<div class="fixed top-0 left-0 w-full h-full grid grid-cols-24 place-content-center">
+    <div class="col-start-7 col-end-19 border-8 border-black ">
+        <form [formGroup]="chatLoginForm">
+            <input formControlName="username" type="text" />
+            <small *ngIf="!isUsernameInputValid">{{usernameInputErrorMessage}}</small><br>
+            <input formControlName="age" type="number"/>
+            <small *ngIf="!isAgeInputValid">{{ageInputErrorMessage}}</small><br>
+            <input formControlName="city" type="text" />
+            <small *ngIf="!isCityInputValid">{{cityInputErrorMessage}}</small><br>
+            <input formControlName="gender" type="text" />
+            <small *ngIf="!isGenderInputValid">{{genderInputErrorMessage}}</small><br>
+            <button (click)="test1()" type="submit">TIGHH</button>
+        </form>
+    </div>
+</div>
