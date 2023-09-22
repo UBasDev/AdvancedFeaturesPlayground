@@ -9,7 +9,7 @@
             <small *ngIf="!isCityInputValid">{{cityInputErrorMessage}}</small><br>
             <input formControlName="gender" type="text" />
             <small *ngIf="!isGenderInputValid">{{genderInputErrorMessage}}</small><br>
-            <button (click)="test1()" type="submit">TIGHH</button>
+            <button [disabled]="!chatLoginForm.valid" (click)="test1()" type="submit">TIGHH</button>
         </form>
     </div>
 </div>
