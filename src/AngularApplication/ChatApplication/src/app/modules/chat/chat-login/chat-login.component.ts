@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ChatLoginValidators } from './chat-login-validators/chat-login-validators';
 import * as SignalR from '@microsoft/signalr';
-import { ChatService } from 'src/app/services/ChatService';
+import { ChatService } from 'src/app/services/chat/ChatService';
 import { Observable, of } from 'rxjs';
 import { ChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
 

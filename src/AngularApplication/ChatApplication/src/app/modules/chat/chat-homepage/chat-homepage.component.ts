@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
-import { ChatService } from 'src/app/services/ChatService';
+import { ChatService } from 'src/app/services/chat/ChatService';
 
 @Component({
   selector: 'app-chat-homepage',

@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ChatComponent } from "./chat/chat.component";
-import { ChatLoginComponent } from "./chat/chat-login/chat-login.component";
-import { ChatHomepageComponent } from "./chat/chat-homepage/chat-homepage.component";
+import { ChatComponent } from "./modules/chat/chat.component";
+import { ChatLoginComponent } from "./modules/chat/chat-login/chat-login.component";
+import { ChatHomepageComponent } from "./modules/chat/chat-homepage/chat-homepage.component";
 
 const allRoutes: Routes = [
   {

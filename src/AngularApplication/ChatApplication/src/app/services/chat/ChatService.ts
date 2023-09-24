@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import * as SignalR from "@microsoft/signalr"
 import { BehaviorSubject, Subject, of } from "rxjs";
-import { ChatLoginRequestModel } from "../models/chat/ChatLoginRequestModel";
+import { ChatLoginRequestModel } from "../../models/chat/ChatLoginRequestModel";
 
 @Injectable({
     providedIn: 'root'
