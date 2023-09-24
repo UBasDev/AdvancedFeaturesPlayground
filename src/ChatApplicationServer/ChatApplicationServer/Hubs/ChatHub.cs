@@ -50,6 +50,22 @@ namespace ChatApplicationServer.Hubs
                         Gender = requestModel.Gender,
                     }
                 });
+                await Clients.Client(firstUserOfWaitingList.ConnectionId).SendAsync("UserJoinedClientListener", new UserJoinedRequestModel()
+                {
+                    ConnectionId = Context.ConnectionId,
+                    Username = requestModel.Username,
+                    City = requestModel.City,
+                    Age = requestModel.Age,
+                    Gender = requestModel.Gender,
+                });
+                await Clients.Client(Context.ConnectionId).SendAsync("UserJoinedClientListener", new UserJoinedRequestModel()
+                {
+                    ConnectionId = firstUserOfWaitingList.ConnectionId,
+                    Username = firstUserOfWaitingList.Username,
+                    City = firstUserOfWaitingList.City,
+                    Age = firstUserOfWaitingList.Age,
+                    Gender = firstUserOfWaitingList.Gender,
+                });
                 WaitingQueue.Remove(firstUserOfWaitingList);
             }
             else

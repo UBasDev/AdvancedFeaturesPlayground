@@ -30,7 +30,7 @@ if (appSettings.IsSwaggerActive)
     app.UseSwaggerUI();
 }
 app.AddCommonMiddlewares();
-app.MapHub<ChatHub>("/ServerHub");
+app.MapHub<ChatHub>("/ServerChatHub");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
