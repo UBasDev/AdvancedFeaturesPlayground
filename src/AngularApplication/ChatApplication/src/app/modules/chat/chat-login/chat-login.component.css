@@ -1,6 +1,6 @@
 .chatLoginWrapper {
   color:black;
-  background-color: rgba(43, 48, 53, 0.6);
+  background-color: rgba(43, 48, 53, 0.4);
   position: fixed;
   height: 100%;
   width: 100%;
@@ -12,7 +12,7 @@
 }
 .chatLoginContainer {
 background-color: white;
-border: 1px solid rgba(43, 48, 53, 1);
+border: 1px solid rgba(43, 48, 53, 0.8);
   border-radius: 5px;
   
 }

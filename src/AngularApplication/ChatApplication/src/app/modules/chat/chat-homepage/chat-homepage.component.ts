@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
+import { IChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
 import { ChatService } from 'src/app/services/chat/ChatService';
 
 @Component({
@@ -10,12 +10,6 @@ import { ChatService } from 'src/app/services/chat/ChatService';
 export class ChatHomepageComponent {
   constructor(private readonly chatService: ChatService){}
   test1(){
-    const requestBodyToSend: ChatLoginRequestModel = {
-      Age: 33,
-      City: "Selasd",
-      Gender: "male",
-      Username: "useamsd"
-    }
-    this.chatService.sendDataAfterLogin(requestBodyToSend);
+    console.log('CHAT INFO',this.chatService.getCurrentChatInfo)
   }
 }

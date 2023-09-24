@@ -4,7 +4,9 @@ import { ChatLoginValidators } from './chat-login-validators/chat-login-validato
 import * as SignalR from '@microsoft/signalr';
 import { ChatService } from 'src/app/services/chat/ChatService';
 import { Observable, of } from 'rxjs';
-import { ChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
+import { IChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
+import { Router } from '@angular/router';
+import { SpinnerService } from 'src/app/services/spinner/SpinnerService';
 
 interface IGenderOptions {
   id: number;
@@ -21,7 +23,9 @@ export class ChatLoginComponent {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly chatLoginValidators: ChatLoginValidators,
-    private readonly chatService: ChatService
+    private readonly chatService: ChatService,
+    private readonly router:Router,
+    private readonly spinnerService: SpinnerService
   ) {}
 
   public genderOptions: ReadonlyArray<IGenderOptions> = [
@@ -121,10 +125,8 @@ export class ChatLoginComponent {
   async onChatLoginFormSubmit() {
     await this.chatService.startSocketConnection();
     await this.chatService.addClientSideSocketListeners();
-  }
-  async test1(){
     const formValues = this.chatLoginForm.value;
-    const requestBodyToSend: ChatLoginRequestModel = {
+    const requestBodyToSend: IChatLoginRequestModel = {
       Age:
         (formValues?.[this.componentFormInputKeys.ageInputKey] as number) ??
         0,
@@ -142,5 +144,8 @@ export class ChatLoginComponent {
         ] as string) ?? '',
     };
     this.chatService.sendDataAfterLogin(requestBodyToSend);
+    this.router.navigateByUrl("/homepage")
+    this.spinnerService.openSpinner()
   }
+  
 }

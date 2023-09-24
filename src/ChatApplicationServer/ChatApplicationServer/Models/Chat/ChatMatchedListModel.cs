@@ -2,8 +2,7 @@
 {
     public class ChatMatchedListModel
     {
-        public ConnectedUserInformation User1 { get; set; } = new();
-        public ConnectedUserInformation User2 { get; set; } = new();
+        public HashSet<ConnectedUserInformation> Users { get; set; } = new HashSet<ConnectedUserInformation>();
         public HashSet<ChatMessage> Messages { get; set; } = new HashSet<ChatMessage>();
 
     }

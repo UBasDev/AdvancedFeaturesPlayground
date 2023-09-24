@@ -4,7 +4,6 @@
         <mat-divider class="bg-white"></mat-divider>
         <div class="chatLoginFormContainer pt-2">
             <form (ngSubmit)="onChatLoginFormSubmit()" [formGroup]="chatLoginForm" class="grid grid-cols-24 h-full gap-x-2 gap-y-2">
-              <button [routerLink]="['/homepage']">Go to homepage</button>
                 <mat-form-field appearance="outline" color="primary" class="col-span-24">
                     <mat-label>Username</mat-label>
                     <input formControlName="username" type="text" matInput placeholder="Username">
@@ -32,7 +31,6 @@
                   </mat-form-field>
                   <div class="col-span-24 flex items-center justify-center">
                     <button [disabled]="!isFormValid" type="submit" mat-raised-button color="primary">Start to chat</button>
-                    <button (click)="test1()" type="button">Send data</button>
                   </div>
             </form>
         </div>

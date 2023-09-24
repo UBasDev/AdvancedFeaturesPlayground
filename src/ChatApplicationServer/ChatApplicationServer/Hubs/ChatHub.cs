@@ -26,59 +26,64 @@ namespace ChatApplicationServer.Hubs
             }
             _logger.LogInformation(message: $"User has been disconnected with {Context.ConnectionId} id.\n{errorMessage}");
         }
-        public async Task UserConnectedServerListener(UserConnectedServerListenerRequestModel requestModel)
+        public async Task UserConnectedServerListener(UserConnectedServerListenerRequestModel requestBody)
         {
+            var currentUserConnectionId = Context.ConnectionId;
             if (WaitingQueue.Count > 0)
             {
                 ChatQueueModel firstUserOfWaitingList = WaitingQueue.First();
-                ChatMatchedListModel.Add(new ChatMatchedListModel()
+                var matchedChat = new ChatMatchedListModel()
                 {
-                    User1 = new ConnectedUserInformation()
+                    Users = new HashSet<ConnectedUserInformation>()
                     {
-                        ConnectionId = firstUserOfWaitingList.ConnectionId,
-                        Username = firstUserOfWaitingList.Username,
-                        City = firstUserOfWaitingList.City,
-                        Age = firstUserOfWaitingList.Age,
-                        Gender = firstUserOfWaitingList.Gender,
-                    },
-                    User2 = new ConnectedUserInformation()
-                    {
-                        ConnectionId = Context.ConnectionId,
-                        Username = requestModel.Username,
-                        City = requestModel.City,
-                        Age = requestModel.Age,
-                        Gender = requestModel.Gender,
+                        new()
+                        {
+                            ConnectionId = firstUserOfWaitingList.ConnectionId,
+                            Username = firstUserOfWaitingList.Username,
+                            City = firstUserOfWaitingList.City,
+                            Age = firstUserOfWaitingList.Age,
+                            Gender = firstUserOfWaitingList.Gender,
+                        },
+                        new()
+                        {
+                            ConnectionId = currentUserConnectionId,
+                            Username = requestBody.Username,
+                            City = requestBody.City,
+                            Age = requestBody.Age,
+                            Gender = requestBody.Gender,
+                        }
                     }
-                });
-                await Clients.Client(firstUserOfWaitingList.ConnectionId).SendAsync("UserJoinedClientListener", new UserJoinedRequestModel()
-                {
-                    ConnectionId = Context.ConnectionId,
-                    Username = requestModel.Username,
-                    City = requestModel.City,
-                    Age = requestModel.Age,
-                    Gender = requestModel.Gender,
-                });
-                await Clients.Client(Context.ConnectionId).SendAsync("UserJoinedClientListener", new UserJoinedRequestModel()
-                {
-                    ConnectionId = firstUserOfWaitingList.ConnectionId,
-                    Username = firstUserOfWaitingList.Username,
-                    City = firstUserOfWaitingList.City,
-                    Age = firstUserOfWaitingList.Age,
-                    Gender = firstUserOfWaitingList.Gender,
-                });
+                };
+                ChatMatchedListModel.Add(matchedChat);
+                await Clients.Client(firstUserOfWaitingList.ConnectionId).SendAsync("UserJoinedClientListener", matchedChat);
+                await Clients.Client(currentUserConnectionId).SendAsync("UserJoinedClientListener", matchedChat);
                 WaitingQueue.Remove(firstUserOfWaitingList);
             }
             else
             {
                 WaitingQueue.Add(new ChatQueueModel()
                 {
-                    ConnectionId = Context.ConnectionId,
-                    Username = requestModel.Username,
-                    City = requestModel.City,
-                    Age = requestModel.Age,
-                    Gender = requestModel.Gender,
+                    ConnectionId = currentUserConnectionId,
+                    Username = requestBody.Username,
+                    City = requestBody.City,
+                    Age = requestBody.Age,
+                    Gender = requestBody.Gender,
                 });
             }
+        }
+        public async Task SendMessageServerListener(SendMessageRequestModel requestBody)
+        {
+            var currentUserConnectionId = Context.ConnectionId;
+            var chatFound = ChatMatchedListModel.FirstOrDefault(chat => chat.Users.Any(user => user.ConnectionId.Contains(currentUserConnectionId))) ?? throw new ArgumentException($"There is no one in chat list with {currentUserConnectionId} id");
+            chatFound.Messages.Add(new ChatMessage()
+            {
+                SenderConnectionId = currentUserConnectionId,
+                Content = requestBody.Content,
+                SendDate = requestBody.SendDate
+            });
+            await Clients.Client(currentUserConnectionId).SendAsync("ChatReceivedClientListener", chatFound);
+            await Clients.Client(currentUserConnectionId).SendAsync("ChatReceivedClientListener", chatFound);
+
         }
     }
 }
