@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import {
-  AbstractControl,
+  
   FormBuilder,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
+  
 } from '@angular/forms';
 import { ChatLoginValidators } from './chat-login-validators/chat-login-validators';
+
+interface IGenderOptions{
+  id:number;
+  key:string;
+  value:string;
+}
 
 @Component({
   selector: 'app-chat-login',
@@ -14,13 +18,24 @@ import { ChatLoginValidators } from './chat-login-validators/chat-login-validato
   styleUrls: ['./chat-login.component.css'],
 })
 export class ChatLoginComponent {
+  public genderOptions: ReadonlyArray<IGenderOptions> = [
+    {
+      id: 1,
+      key: "Male",
+      value: "male"
+    },
+    {
+      id: 2,
+      key: "Female",
+      value: "female"
+    }
+  ]
   public componentFormInputKeys = {
     usernameInputKey: 'username',
     ageInputKey: 'age',
     cityInputKey: 'city',
     genderInputKey: 'gender',
   };
-
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly chatLoginValidators: ChatLoginValidators
@@ -39,47 +54,50 @@ export class ChatLoginComponent {
       this.chatLoginValidators.cityInputValidator(),
     ],
     [this.componentFormInputKeys.genderInputKey]: [
-      '',
+      this.genderOptions[0].value,
       this.chatLoginValidators.genderInputValidator(),
     ],
   });
-  get isAgeInputValid() {
+  get isAgeInputValid():boolean {
     return this.chatLoginForm.controls[this.componentFormInputKeys.ageInputKey]
-      .errors?.['isValid'];
+      .errors?.['isValid'] ?? true;
   }
-  get ageInputErrorMessage() {
+  get ageInputErrorMessage():string {
     return this.chatLoginForm.controls[this.componentFormInputKeys.ageInputKey]
-      .errors?.['errorMessage'];
+      .errors?.['errorMessage'] ?? "";
   }
-  get isUsernameInputValid() {
+  get isUsernameInputValid():boolean {
     return this.chatLoginForm.controls[
       this.componentFormInputKeys.usernameInputKey
-    ].errors?.['isValid'];
+    ].errors?.['isValid'] ?? true;
   }
-  get usernameInputErrorMessage() {
+  get usernameInputErrorMessage():string {
     return this.chatLoginForm.controls[
       this.componentFormInputKeys.usernameInputKey
-    ].errors?.['errorMessage'];
+    ].errors?.['errorMessage'] ?? "";
   }
-  get isCityInputValid() {
+  get isCityInputValid():boolean {
     return this.chatLoginForm.controls[this.componentFormInputKeys.cityInputKey]
-      .errors?.['isValid'];
+      .errors?.['isValid'] ?? true;
   }
-  get cityInputErrorMessage() {
+  get cityInputErrorMessage():string {
     return this.chatLoginForm.controls[this.componentFormInputKeys.cityInputKey]
-      .errors?.['errorMessage'];
+      .errors?.['errorMessage'] ?? "";
   }
-  get isGenderInputValid() {
+  get isGenderInputValid():boolean {
     return this.chatLoginForm.controls[
       this.componentFormInputKeys.genderInputKey
-    ].errors?.['isValid'];
+    ].errors?.['isValid'] ?? true;
   }
-  get genderInputErrorMessage() {
+  get genderInputErrorMessage():string {
     return this.chatLoginForm.controls[
       this.componentFormInputKeys.genderInputKey
-    ].errors?.['errorMessage'];
+    ].errors?.['errorMessage'] ?? "";
   }
-  public test1() {
-    console.log(this.chatLoginForm);
+  get isFormValid():boolean{
+    return this.isAgeInputValid && this.isCityInputValid && this.isGenderInputValid && this.isUsernameInputValid
+  }
+  onChatLoginFormSubmit(){
+    console.log(this.chatLoginForm.value)
   }
 }

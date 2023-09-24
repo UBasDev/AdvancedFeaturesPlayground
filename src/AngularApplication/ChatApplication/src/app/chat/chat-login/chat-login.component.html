@@ -1,15 +1,38 @@
-<div class="fixed top-0 left-0 w-full h-full grid grid-cols-24 place-content-center">
-    <div class="col-start-7 col-end-19 border-8 border-black ">
-        <form [formGroup]="chatLoginForm">
-            <input formControlName="username" type="text" />
-            <small *ngIf="!isUsernameInputValid">{{usernameInputErrorMessage}}</small><br>
-            <input formControlName="age" type="number"/>
-            <small *ngIf="!isAgeInputValid">{{ageInputErrorMessage}}</small><br>
-            <input formControlName="city" type="text" />
-            <small *ngIf="!isCityInputValid">{{cityInputErrorMessage}}</small><br>
-            <input formControlName="gender" type="text" />
-            <small *ngIf="!isGenderInputValid">{{genderInputErrorMessage}}</small><br>
-            <button [disabled]="!chatLoginForm.valid" (click)="test1()" type="submit">TIGHH</button>
-        </form>
+<div class="chatLoginWrapper">
+    <div class="chatLoginContainer w-3/5 lg:w-2/5 xl:w-1/5 p-2">
+        <h2 class="text-center">Please login to chat with strangers</h2>
+        <mat-divider class="bg-white"></mat-divider>
+        <div class="chatLoginFormContainer pt-2">
+            <form (ngSubmit)="onChatLoginFormSubmit()" [formGroup]="chatLoginForm" class="grid grid-cols-24 h-full gap-x-2 gap-y-2">
+                <mat-form-field appearance="outline" color="primary" class="col-span-24">
+                    <mat-label>Username</mat-label>
+                    <input formControlName="username" type="text" matInput placeholder="Username">
+                    <mat-icon matSuffix>account_box</mat-icon>
+                    <mat-error *ngIf="!isUsernameInputValid">{{usernameInputErrorMessage}}</mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" color="primary" class="col-span-24">
+                    <mat-label>Age</mat-label>
+                    <input formControlName="age" type="number" matInput placeholder="Age">
+                    <mat-error *ngIf="!isAgeInputValid">{{ageInputErrorMessage}}</mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" color="primary" class="col-span-24">
+                    <mat-label>City</mat-label>
+                    <input formControlName="city" type="text" matInput placeholder="City">
+                    <mat-icon matSuffix>location_city</mat-icon>
+                    <mat-error *ngIf="!isCityInputValid">{{cityInputErrorMessage}}</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="col-span-24">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender" name="gender">
+                      <mat-option *ngFor="let currentGender of genderOptions" [value]="currentGender.value">
+                        {{currentGender.key}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="col-span-24 flex items-center justify-center">
+                    <button [disabled]="!isFormValid" type="submit" mat-raised-button color="primary">Start to chat</button>
+                  </div>
+            </form>
+        </div>
     </div>
 </div>
