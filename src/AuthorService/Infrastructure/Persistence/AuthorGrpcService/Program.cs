@@ -1,6 +1,5 @@
 using AuthorGrpcService.GrpcInterceptors;
 using AuthorGrpcService.Services;
-using Grpc.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -2,15 +2,10 @@
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 using StackExchange.Redis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthorService.Persistence.Redis
 {
-    public class RedisCacheRepository1: IRedisCacheRepository1
+    public class RedisCacheRepository1 : IRedisCacheRepository1
     {
         private readonly IDistributedCache _distributedCache1;
         private readonly IConnectionMultiplexer _connectionMultiplexer;
@@ -65,7 +60,7 @@ namespace AuthorService.Persistence.Redis
             List<string> allChildKeysFromRedisDatabase1 = await GetAllExistedChildKeys(cacheKey1);
             foreach (var currentKey1 in allChildKeysFromRedisDatabase1)
             {
-                if(!exceptionKeys1.Any(e => currentKey1.StartsWith(e)))
+                if (!exceptionKeys1.Any(e => currentKey1.StartsWith(e)))
                 {
                     Console.WriteLine($"{currentKey1}=> key has been cleaned from Redis");
                     await _distributedCache1.RemoveAsync(currentKey1);

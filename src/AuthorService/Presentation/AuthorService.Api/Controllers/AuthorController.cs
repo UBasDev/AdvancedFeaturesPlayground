@@ -8,24 +8,16 @@ using Grpc.Net.Client;
 using IdentityModel;
 using Microservice1.protos;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Net.Mime;
-using System.Numerics;
-using System.Runtime.ConstrainedExecution;
 using System.Security.Claims;
 using System.Text;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace AuthorService.Api.Controllers
 {
@@ -137,7 +129,8 @@ namespace AuthorService.Api.Controllers
         {
             return Ok();
         }
-        public class GetAllAuthorsDto {
+        public class GetAllAuthorsDto
+        {
             public string AuthorName { get; set; }
             public int Age { get; set; }
         }
@@ -150,11 +143,11 @@ namespace AuthorService.Api.Controllers
             {
                 command.CommandTimeout = 300;
                 await connection.OpenAsync();
-                await using(var currentRow = await command.ExecuteReaderAsync())
+                await using (var currentRow = await command.ExecuteReaderAsync())
                 {
-                    while(await currentRow.ReadAsync())
+                    while (await currentRow.ReadAsync())
                     {
-                    var currentAuthorName = String.IsNullOrEmpty(currentRow["AuthorName"].ToString()) ? "" : currentRow["AuthorName"].ToString();
+                        var currentAuthorName = String.IsNullOrEmpty(currentRow["AuthorName"].ToString()) ? "" : currentRow["AuthorName"].ToString();
                         var currentAuthorAge = String.IsNullOrEmpty(currentRow["Age"].ToString()) ? 0 : Convert.ToInt32(currentRow["Age"]);
                         var currentAuthor = new GetAllAuthorsDto()
                         {
@@ -195,7 +188,7 @@ namespace AuthorService.Api.Controllers
                 }
             };
             var authorToCreate = new Author();
-            
+
             await _dbContext.Authors.AddRangeAsync(authorsToCreate);
             bool bool1 = await _dbContext.Authors.AllAsync(a => a.Id > 1);
             bool bool2 = await _dbContext.Authors.AnyAsync(a => a.Id == 1);
@@ -222,8 +215,8 @@ namespace AuthorService.Api.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> Test6()
         {
-            var list1 = new List<string>() { "Author1", "Ahmet", "Ahmet", "Ahmet", "Mehmet", "Mehmet", "Mehmet", "Ziya", "Ziya"};
-            
+            var list1 = new List<string>() { "Author1", "Ahmet", "Ahmet", "Ahmet", "Mehmet", "Mehmet", "Mehmet", "Ziya", "Ziya" };
+
             var x1 = await _dbContext.Authors.Select(a => $"{a.AuthorName} - {a.Age}").ToListAsync();
             var x2 = list1.Distinct().ToList();
             var x3 = await _dbContext.Authors.Select(x => new
@@ -231,7 +224,7 @@ namespace AuthorService.Api.Controllers
                 NewKey1 = x.AuthorName,
                 NewKey2 = x.Age
             }).ToListAsync();
-            var x21 = await _dbContext.Authors.Select(a => $"{ a.AuthorName} - { a.Age}").ToListAsync();
+            var x21 = await _dbContext.Authors.Select(a => $"{a.AuthorName} - {a.Age}").ToListAsync();
             var x22 = await _dbContext.Authors.Where(a => list1.Contains(a.AuthorName)).ToListAsync();
             var x23 = await _dbContext.Authors.Select(x => x.AuthorName).Distinct().ToListAsync();
             var x24 = await _dbContext.Authors.ToListAsync();
@@ -246,7 +239,7 @@ namespace AuthorService.Api.Controllers
             return Ok(response1);
         }
         [HttpGet("[action]")]
-        [CustomAttributeAsync1(property1:21, property2:"Test1", property3:new string[] { "Ahmet1", "Mehmet1", "Fatma1" })]
+        [CustomAttributeAsync1(property1: 21, property2: "Test1", property3: new string[] { "Ahmet1", "Mehmet1", "Fatma1" })]
         public async Task<IActionResult> Test8()
         {
             return Ok();
@@ -319,11 +312,11 @@ namespace AuthorService.Api.Controllers
         {
             var videoFilePath1 = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\", "Core", "AuthorService.Application", "StaticFiles", "video1.mp4");
 
-            
+
             var content = new ContentResult()
             {
-                Content= "sadas",
-                ContentType= "application/json",
+                Content = "sadas",
+                ContentType = "application/json",
                 StatusCode = (int)HttpStatusCode.OK
             };
             _httpClient.Timeout = TimeSpan.FromSeconds(30);
@@ -331,8 +324,8 @@ namespace AuthorService.Api.Controllers
             {
                 UserId = 1,
                 Id = 2,
-                Title= "title1",
-                Body= "body1"
+                Title = "title1",
+                Body = "body1"
             };
             var content2 = new StringContent(JsonConvert.SerializeObject(objectToSend1), encoding: Encoding.UTF8, mediaType: "application/json");
 
@@ -350,7 +343,7 @@ namespace AuthorService.Api.Controllers
             var x7 = response1.RequestMessage.RequestUri;
             var x8 = response1.RequestMessage.Version;
             var x9 = response1.RequestMessage.VersionPolicy;
-            
+
             string responseBody1 = await response1.Content.ReadAsStringAsync(cancellationToken);
             Class1? responseBody2 = await response1.Content.ReadFromJsonAsync<Class1>(new System.Text.Json.JsonSerializerOptions()
             {
@@ -363,8 +356,8 @@ namespace AuthorService.Api.Controllers
         {
             var result1 = new ContentResult()
             {
-                Content= "asd",
-                ContentType= MediaTypeNames.Application.Json,
+                Content = "asd",
+                ContentType = MediaTypeNames.Application.Json,
                 StatusCode = (int)HttpStatusCode.Created
             };
             return result1;
@@ -381,7 +374,7 @@ namespace AuthorService.Api.Controllers
 
             await HttpContext.Response.WriteAsJsonAsync(new
             {
-                Property1= "value1",
+                Property1 = "value1",
                 Property2 = "value2",
             }, cancellationToken);
             var x3 = HttpContext.Request.Method;
@@ -413,7 +406,7 @@ namespace AuthorService.Api.Controllers
             var fullname1 = allClaims1.FirstOrDefault(t => t.Type == "fullname")?.Value;
 
             var role1 = allClaims1.FirstOrDefault(t => t.Type == JwtClaimTypes.Role)?.Value;
-            
+
             return Ok(allClaims1);
         }
 

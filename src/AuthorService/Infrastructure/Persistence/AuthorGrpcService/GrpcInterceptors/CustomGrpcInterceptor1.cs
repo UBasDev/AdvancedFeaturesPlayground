@@ -3,7 +3,7 @@ using Grpc.Core.Interceptors;
 
 namespace AuthorGrpcService.GrpcInterceptors
 {
-    public class CustomGrpcInterceptor1:Interceptor
+    public class CustomGrpcInterceptor1 : Interceptor
     {
         private readonly ILogger<CustomGrpcInterceptor1> _logger;
         public CustomGrpcInterceptor1(ILogger<CustomGrpcInterceptor1> logger)
@@ -17,7 +17,8 @@ namespace AuthorGrpcService.GrpcInterceptors
             {
                 _logger.LogInformation("Interceptor works!");
                 return await continuation(request, context);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "{Type} {Status} {CreatedDate}", "Exception", "Error", DateTime.Now);
                 throw;
