@@ -143,7 +143,7 @@ export class ChatLoginComponent {
           this.componentFormInputKeys.usernameInputKey
         ] as string) ?? '',
     };
-    this.chatService.sendDataAfterLogin(requestBodyToSend);
+    this.chatService.sendUserDataAfterLoginForQueueAndMatch(requestBodyToSend);
     this.router.navigateByUrl("/homepage")
     this.spinnerService.openSpinner()
   }

@@ -71,19 +71,24 @@ namespace ChatApplicationServer.Hubs
                 });
             }
         }
-        public async Task SendMessageServerListener(SendMessageRequestModel requestBody)
+
+        public async Task SendMessageToStrangerUserServerListener(SendMessageToStrangerRequestModel requestBody)
         {
             var currentUserConnectionId = Context.ConnectionId;
-            var chatFound = ChatMatchedListModel.FirstOrDefault(chat => chat.Users.Any(user => user.ConnectionId.Contains(currentUserConnectionId))) ?? throw new ArgumentException($"There is no one in chat list with {currentUserConnectionId} id");
-            chatFound.Messages.Add(new ChatMessage()
+            var chatFound = ChatMatchedListModel.FirstOrDefault(chat => chat.Users.Any(user => user.ConnectionId.Contains(currentUserConnectionId))) ?? throw new ArgumentException($"There is no one in chat list with {{currentUserConnectionId}} id");
+            var newMessageToAdd = new ChatMessage()
             {
+                Content = requestBody.MessageContent,
+                SendDate = DateTime.Now,
                 SenderConnectionId = currentUserConnectionId,
-                Content = requestBody.Content,
-                SendDate = requestBody.SendDate
-            });
-            await Clients.Client(currentUserConnectionId).SendAsync("ChatReceivedClientListener", chatFound);
-            await Clients.Client(currentUserConnectionId).SendAsync("ChatReceivedClientListener", chatFound);
-
+                SenderUsername = requestBody.Username
+            };
+            chatFound.Messages.Add(newMessageToAdd);
+            foreach (var currentUser in chatFound.Users)
+            {
+                await Clients.Client(currentUser.ConnectionId).SendAsync("ChatReceivedClientListener", newMessageToAdd);
+            }
+            var x1 = ChatMatchedListModel;
         }
     }
 }

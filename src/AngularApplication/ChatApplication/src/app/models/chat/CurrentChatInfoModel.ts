@@ -10,6 +10,7 @@ export interface IUserInformation{
     Gender: string;
 }
 export interface IChatMessage{
+    SenderUsername: string;
     SenderConnectionId: string;
     SendDate: Date;
     Content: string;

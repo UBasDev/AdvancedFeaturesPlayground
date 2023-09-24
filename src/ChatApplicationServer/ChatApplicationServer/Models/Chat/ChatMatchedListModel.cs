@@ -17,6 +17,7 @@
     public class ChatMessage
     {
         public string SenderConnectionId { get; set; } = String.Empty;
+        public string SenderUsername { get; set; }
         public DateTime SendDate { get; set; }
         public string Content { get; set; } = String.Empty;
     }

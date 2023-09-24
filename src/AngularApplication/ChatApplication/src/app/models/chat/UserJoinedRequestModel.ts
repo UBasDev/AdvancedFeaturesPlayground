@@ -11,6 +11,7 @@ export interface IUserJoinedInformation{
 }
 export interface IChatJoinedMessage{
     senderConnectionId: string;
+    senderUsername: string;
     sendDate: Date;
     content: string;
 }

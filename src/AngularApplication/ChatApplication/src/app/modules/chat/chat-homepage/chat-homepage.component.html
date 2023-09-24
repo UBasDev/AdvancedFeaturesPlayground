@@ -1,5 +1,9 @@
-<div>
+<div class="bg-red-500">
     <p>chat-homepage works!</p>
     <button [routerLink]="['/']">Go to loginpage</button>
     <button (click)="test1()" class="bg-white text-black" type="button">Chat info</button>
+    <form [formGroup]="sendMessageForm">
+        <input class="text-black" formControlName="message" type="text" /><br>
+        <button (click)="sendMessage()">Send message</button>
+    </form>
 </div>

@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
 import * as SignalR from "@microsoft/signalr"
-import { BehaviorSubject, Subject, of } from "rxjs";
-import { ChatLoginRequestModel, IChatLoginRequestModel } from "../../models/chat/ChatLoginRequestModel";
+import { IChatLoginRequestModel } from "../../models/chat/ChatLoginRequestModel";
 import { SpinnerService } from "../spinner/SpinnerService";
 import { CurrentChatInfoModel, IChatMessage, ICurrentChatInfoModel, IUserInformation } from "src/app/models/chat/CurrentChatInfoModel";
-import { IChatJoinedMessage, IUserJoinedRequestModel } from "src/app/models/chat/UserJoinedRequestModel";
+import {  IUserJoinedRequestModel } from "src/app/models/chat/UserJoinedRequestModel";
+import { ChatReceivedRequestModel, IChatReceivedRequestModel } from "src/app/models/chat/ChatReceivedRequestModel";
+import { ISendMessageToStrangerModel } from "src/app/models/chat/SendMessageToStrangerModel";
 
 @Injectable({
     providedIn: 'root'
@@ -30,7 +31,7 @@ export class ChatService{
             console.log("Data received from server: ", data)
         })
         this.globalSocketConnection.on("UserJoinedClientListener", (requestBody: IUserJoinedRequestModel)=>{
-            console.log('USERJOINED', requestBody)
+            const newUsers: Array<IUserInformation> = []
             requestBody.users.forEach((currentUser)=>{
                 const newUser: IUserInformation = {
                     ConnectionId: currentUser.connectionId,
@@ -39,25 +40,43 @@ export class ChatService{
                     Gender: currentUser.gender,
                     Username: currentUser.username
                 }
-                this.currentChatInfo.Users.push(newUser)
+                newUsers.push(newUser)
             })
+            this.currentChatInfo.Users = newUsers
             if(requestBody?.messages && requestBody?.messages?.length>1) {
+                const newMessages: Array<IChatMessage> = []
                 requestBody.messages.forEach((currentMessage)=>{
                     const newMessage: IChatMessage = {
                         SenderConnectionId: currentMessage.senderConnectionId,
                         Content: currentMessage.content,
-                        SendDate: currentMessage.sendDate
+                        SendDate: currentMessage.sendDate,
+                        SenderUsername: currentMessage.senderUsername
                     }
-                    this.currentChatInfo.Messages.push(newMessage)
+                    newMessages.push(newMessage)
                 })
+                this.currentChatInfo.Messages = newMessages
             }
-            
-            
             this.spinnerService.closeSpinner();
         })
+        this.globalSocketConnection.on("ChatReceivedClientListener", (requestBody: IChatReceivedRequestModel)=>{
+            const newMessage: IChatMessage = {
+                Content: requestBody.content,
+                SendDate: requestBody.sendDate,
+                SenderConnectionId: requestBody.senderConnectionId,
+                SenderUsername: requestBody.senderUsername
+            }
+            this.currentChatInfo.Messages.push(newMessage)
+        })
     }
-    sendDataAfterLogin(requestBody: ChatLoginRequestModel){
+    sendUserDataAfterLoginForQueueAndMatch(requestBody: IChatLoginRequestModel){
         this.globalSocketConnection.invoke("UserConnectedServerListener", requestBody)
+    }
+    sendMessageToStrangerUser(message: string){
+        const requestToSend: ISendMessageToStrangerModel = {
+            MessageContent: message,
+            Username: this.currentChatInfo.Users.find(x => x.ConnectionId == this.globalSocketConnection.connectionId)?.Username ?? ""
+        }
+        this.globalSocketConnection.invoke("SendMessageToStrangerUserServerListener", requestToSend)
     }
     get getCurrentChatInfo(): ICurrentChatInfoModel{
         return this.currentChatInfo
