@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import {
+  IChatMessage,
   IUserInformation,
   UserInformation,
 } from 'src/app/models/chat/CurrentChatInfoModel';
 import { ChatService } from 'src/app/services/chat/ChatService';
 import { IChatInfoInitialState } from 'src/app/store/chat/chat_reducer';
+import { ISpinnerStateInitialState } from 'src/app/store/spinner/spinner.reducer';
 
 @Component({
   selector: 'app-chat-homepage',
@@ -18,20 +20,23 @@ export class ChatHomepageComponent implements OnInit {
   public componentFormInputKeys = {
     message: 'message',
   };
+  public isSpinnerActive: boolean = false;
+  public chatMessages: Array<IChatMessage> = []
 
   constructor(
     private readonly chatService: ChatService,
     private readonly formBuilder: FormBuilder,
-    private stateStore: Store<{ globalChatInfo: IChatInfoInitialState }>
+    private chatInfoStore: Store<{ globalChatInfo: IChatInfoInitialState }>,
+    private spinnerStore: Store<{ globalSpinnerInfo: ISpinnerStateInitialState }>
   ) {}
   ngOnInit(): void {
-    this.stateStore
+    this.chatInfoStore
       .select('globalChatInfo')
-      .subscribe((data: IChatInfoInitialState) => {
+      .subscribe((chatData: IChatInfoInitialState) => {
         const currentUser: IUserInformation | undefined =
-          data.currentChatInfo.Users.find(
-            (x) =>
-              x.ConnectionId ==
+        chatData.currentChatInfo.Users.find(
+            (currentUser) =>
+            currentUser.ConnectionId ==
               this.chatService.globalSocketConnection.connectionId
           );
         if (!currentUser)
@@ -45,10 +50,14 @@ export class ChatHomepageComponent implements OnInit {
           ConnectionId: currentUser?.ConnectionId ?? '',
           Gender: currentUser?.Gender ?? '',
         };
+        this.chatMessages = chatData.currentChatInfo.Messages
       });
+    this.spinnerStore.select('globalSpinnerInfo').subscribe((spinnerData: ISpinnerStateInitialState)=>{
+      this.isSpinnerActive = spinnerData.isOpen
+    })
   }
   test1() {
-    this.stateStore
+    this.chatInfoStore
       .select('globalChatInfo')
       .subscribe((data: IChatInfoInitialState) => {
         console.log('CHAT INFO', data.currentChatInfo);
