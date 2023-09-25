@@ -1,5 +1,4 @@
-# SimpleGrpcServerAndJwt1
-Simple implementation of JWT authentication and custom authorizations. And extra GRPC server :)</br>
+# This repo includes tens of features and implementations, here is my playground to show and improve some skills :)
 -GrpcClient</br>
 -GrpcServer</br>
 -GrpcInterceptor</br>
