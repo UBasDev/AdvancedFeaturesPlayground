@@ -11,9 +11,12 @@ Simple implementation of JWT authentication and custom authorizations. And extra
 -Authorization</br>
 -Redis implementation with all required operations</br>
 -ApiGateway</br>
--Ocelot implementation.</br>
--SignalR for client and server.</br>
+-Ocelot implementation</br>
+-SignalR Server-Side</br>
 -ChatApplication[Ongoing]</br>
--Bootstrap</br>
--AlertifyJS</br>
--RazorPages
+-Angular 16</br>
+-NGRX implemantation for component level and global level state management.</br>
+-SignalR Client-Side</br>
+-TailwindCss</br>
+-Angular Material UI</br>
+-Reactive Forms</br>
