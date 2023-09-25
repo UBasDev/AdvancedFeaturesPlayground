@@ -1,5 +1,6 @@
 ﻿using ChatApplicationServer.Models.Chat;
 using Microsoft.AspNetCore.SignalR;
+using System.Globalization;
 
 namespace ChatApplicationServer.Hubs
 {
@@ -79,7 +80,7 @@ namespace ChatApplicationServer.Hubs
             var newMessageToAdd = new ChatMessage()
             {
                 Content = requestBody.MessageContent,
-                SendDate = DateTime.Now,
+                SendDate = DateTime.ParseExact(DateTime.Now.ToString("MM/dd/yyyy HH:mm"), "MM/dd/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture),
                 SenderConnectionId = currentUserConnectionId,
                 SenderUsername = requestBody.Username
             };
