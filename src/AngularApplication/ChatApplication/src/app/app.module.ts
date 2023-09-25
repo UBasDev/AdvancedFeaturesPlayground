@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ChatModule } from './modules/chat/chat.module';
-import { ChatLoginComponent } from './modules/chat/chat-login/chat-login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalSpinnerModule } from './single-modules/global-spinner/global-spinner.module';
+import { StoreModule } from '@ngrx/store';
+import { ChatInfoReducer } from './store/chat/chat_reducer';
+import { SpinnerStateReducer } from './store/spinner/spinner.reducer';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,11 @@ import { GlobalSpinnerModule } from './single-modules/global-spinner/global-spin
     ChatModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    GlobalSpinnerModule
+    GlobalSpinnerModule,
+    StoreModule.forRoot({
+      globalChatInfo: ChatInfoReducer,
+      globalSpinnerInfo: SpinnerStateReducer
+    }, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

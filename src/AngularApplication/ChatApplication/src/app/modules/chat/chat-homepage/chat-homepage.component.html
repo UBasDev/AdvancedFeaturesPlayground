@@ -1,9 +1,18 @@
-<div class="bg-red-500">
-    <p>chat-homepage works!</p>
-    <button [routerLink]="['/']">Go to loginpage</button>
-    <button (click)="test1()" class="bg-white text-black" type="button">Chat info</button>
-    <form [formGroup]="sendMessageForm">
-        <input class="text-black" formControlName="message" type="text" /><br>
-        <button (click)="sendMessage()">Send message</button>
-    </form>
+<div class="chatHomepageWrapper">
+    <div class="chatLoginContainer w-4/5 lg:w-3/5 xl:w-2/5 p-2">
+        <div class="grid grid-cols-24">
+            <div class="col-span-6">
+                <p>{{currentUserInfo.Username}}</p>
+                <p>{{currentUserInfo.Age}}</p>
+                <p>{{currentUserInfo.City}}</p>
+                <button (click)="test1()">TIGHH</button>
+            </div>
+            <div class="col-span-18">
+                <form [formGroup]="sendMessageForm" class="grid grid-cols-24 h-full">
+                    <input class="text-black" formControlName="message" type="text" /><br>
+                    <button (click)="sendMessage()">Send message</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

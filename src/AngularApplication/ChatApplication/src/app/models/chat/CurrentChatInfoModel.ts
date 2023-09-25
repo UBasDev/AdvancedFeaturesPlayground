@@ -9,6 +9,13 @@ export interface IUserInformation{
     City: string;
     Gender: string;
 }
+export class UserInformation implements IUserInformation{
+    ConnectionId: string = "";
+    Username: string = "";
+    Age: number = 0;
+    City: string = "";
+    Gender: string = "";
+}
 export interface IChatMessage{
     SenderUsername: string;
     SenderConnectionId: string;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SpinnerService } from './services/spinner/SpinnerService';
+import { Store } from '@ngrx/store';
+import { ISpinnerStateInitialState } from './store/spinner/spinner.reducer';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,12 @@ import { SpinnerService } from './services/spinner/SpinnerService';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private readonly spinnerService:SpinnerService){}
+  constructor(
+    private stateStore: Store<{ globalSpinnerInfo: ISpinnerStateInitialState }>
+    ){}
   ngOnInit(): void {
-    this.spinnerService.isSpinnerActive.subscribe((spinnerValue: boolean)=>{
-      this.isSpinnerActive = spinnerValue;
+    this.stateStore.select('globalSpinnerInfo').subscribe((spinnerValue: ISpinnerStateInitialState)=>{
+      this.isSpinnerActive = spinnerValue.isOpen
     })
   }
   

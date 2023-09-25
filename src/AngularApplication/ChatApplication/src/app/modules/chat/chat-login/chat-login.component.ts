@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ChatLoginValidators } from './chat-login-validators/chat-login-validators';
-import * as SignalR from '@microsoft/signalr';
 import { ChatService } from 'src/app/services/chat/ChatService';
-import { Observable, of } from 'rxjs';
 import { IChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
 import { Router } from '@angular/router';
 import { SpinnerService } from 'src/app/services/spinner/SpinnerService';
@@ -123,6 +121,7 @@ export class ChatLoginComponent {
   }
 
   async onChatLoginFormSubmit() {
+    this.spinnerService.openSpinner()
     await this.chatService.startSocketConnection();
     await this.chatService.addClientSideSocketListeners();
     const formValues = this.chatLoginForm.value;
@@ -143,9 +142,8 @@ export class ChatLoginComponent {
           this.componentFormInputKeys.usernameInputKey
         ] as string) ?? '',
     };
-    this.chatService.sendUserDataAfterLoginForQueueAndMatch(requestBodyToSend);
+    await this.chatService.sendUserDataAfterLoginForQueueAndMatch(requestBodyToSend);
     this.router.navigateByUrl("/homepage")
-    this.spinnerService.openSpinner()
   }
   
 }

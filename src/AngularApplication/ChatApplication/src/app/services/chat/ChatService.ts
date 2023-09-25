@@ -2,18 +2,23 @@ import { Injectable } from "@angular/core";
 import * as SignalR from "@microsoft/signalr"
 import { IChatLoginRequestModel } from "../../models/chat/ChatLoginRequestModel";
 import { SpinnerService } from "../spinner/SpinnerService";
-import { CurrentChatInfoModel, IChatMessage, ICurrentChatInfoModel, IUserInformation } from "src/app/models/chat/CurrentChatInfoModel";
+import { IChatMessage, IUserInformation, UserInformation } from "src/app/models/chat/CurrentChatInfoModel";
 import {  IUserJoinedRequestModel } from "src/app/models/chat/UserJoinedRequestModel";
-import { ChatReceivedRequestModel, IChatReceivedRequestModel } from "src/app/models/chat/ChatReceivedRequestModel";
-import { ISendMessageToStrangerModel } from "src/app/models/chat/SendMessageToStrangerModel";
+import { IChatReceivedRequestModel } from "src/app/models/chat/ChatReceivedRequestModel";
+import { SendMessageToStrangerModel } from "src/app/models/chat/SendMessageToStrangerModel";
+import { Store } from "@ngrx/store";
+import { IChatInfoInitialState } from "src/app/store/chat/chat_reducer";
+import { ChatActions } from "src/app/store/chat/chat.actions";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ChatService{
-    constructor(private readonly spinnerService:SpinnerService){}
-    private globalSocketConnection!: SignalR.HubConnection;
-    private currentChatInfo: CurrentChatInfoModel = new CurrentChatInfoModel();
+    constructor(
+        private readonly spinnerService:SpinnerService,
+        private stateStore: Store<{ globalChatInfo: IChatInfoInitialState }>
+    ){}
+    public globalSocketConnection!: SignalR.HubConnection;
     setSocketConnection(data1: SignalR.HubConnection){
         this.globalSocketConnection = data1;
     }
@@ -42,7 +47,11 @@ export class ChatService{
                 }
                 newUsers.push(newUser)
             })
-            this.currentChatInfo.Users = newUsers
+            this.stateStore.dispatch(
+                ChatActions.updateUsers({
+                    newUsers: newUsers
+                })
+            )
             if(requestBody?.messages && requestBody?.messages?.length>1) {
                 const newMessages: Array<IChatMessage> = []
                 requestBody.messages.forEach((currentMessage)=>{
@@ -54,7 +63,7 @@ export class ChatService{
                     }
                     newMessages.push(newMessage)
                 })
-                this.currentChatInfo.Messages = newMessages
+                
             }
             this.spinnerService.closeSpinner();
         })
@@ -65,20 +74,25 @@ export class ChatService{
                 SenderConnectionId: requestBody.senderConnectionId,
                 SenderUsername: requestBody.senderUsername
             }
-            this.currentChatInfo.Messages.push(newMessage)
+            this.stateStore.dispatch(
+                ChatActions.addNewMessage({
+                    newMessage: newMessage
+                })
+            )
         })
     }
-    sendUserDataAfterLoginForQueueAndMatch(requestBody: IChatLoginRequestModel){
-        this.globalSocketConnection.invoke("UserConnectedServerListener", requestBody)
+    async sendUserDataAfterLoginForQueueAndMatch(requestBody: IChatLoginRequestModel){
+        await this.globalSocketConnection.invoke("UserConnectedServerListener", requestBody)
     }
-    sendMessageToStrangerUser(message: string){
-        const requestToSend: ISendMessageToStrangerModel = {
-            MessageContent: message,
-            Username: this.currentChatInfo.Users.find(x => x.ConnectionId == this.globalSocketConnection.connectionId)?.Username ?? ""
-        }
-        this.globalSocketConnection.invoke("SendMessageToStrangerUserServerListener", requestToSend)
-    }
-    get getCurrentChatInfo(): ICurrentChatInfoModel{
-        return this.currentChatInfo
+    async sendMessageToStrangerUser(message: string){
+        var requestToSend : SendMessageToStrangerModel = new SendMessageToStrangerModel();
+        this.stateStore.select("globalChatInfo").subscribe((data: IChatInfoInitialState)=>{
+            const foundUsername:string = data.currentChatInfo.Users.find(x => x.ConnectionId == this.globalSocketConnection.connectionId)?.Username ?? ""
+            requestToSend = {
+                MessageContent: message,
+                Username: foundUsername
+            }
+        })
+        await this.globalSocketConnection.invoke("SendMessageToStrangerUserServerListener", requestToSend)
     }
 }
