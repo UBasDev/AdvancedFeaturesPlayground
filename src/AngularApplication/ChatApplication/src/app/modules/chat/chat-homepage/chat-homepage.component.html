@@ -1,16 +1,35 @@
 <div class="chatHomepageWrapper">
-    <div class="chatLoginContainer w-4/5 lg:w-3/5 xl:w-2/5 p-2">
-        <div class="grid grid-cols-24">
-            <div class="col-span-6">
-                <p>{{currentUserInfo.Username}}</p>
-                <p>{{currentUserInfo.Age}}</p>
-                <p>{{currentUserInfo.City}}</p>
-                <button (click)="test1()">TIGHH</button>
+    <div class="chatLoginContainer w-4/5 sm:w-4/5 lg:w-3/5 xl:w-3/5 2xl:w-2/5 p-2">
+        <div [ngStyle]="{border:'5px solid black'}" class="grid grid-cols-24 bg-white p-2 gap-x-2">
+            <div class="col-span-10 flex flex-col gap-y-2">
+                <img [ngStyle]="{height:'20rem'}" src="/assets/chat/profile_pictures/profile1.jpg" width="100%" height="250" />
+                <img [ngStyle]="{height:'20rem'}" src="/assets/chat/profile_pictures/profile2.jpg" width="100%" height="250" />
             </div>
-            <div class="col-span-18">
-                <form [formGroup]="sendMessageForm" class="grid grid-cols-24 h-full">
-                    <input class="text-black" formControlName="message" type="text" /><br>
-                    <button (click)="sendMessage()">Send message</button>
+            <div class="col-span-14 flex flex-col items-stretch gap-y-2">
+                <div [ngStyle]="{border: '1.5px solid lightgray'}" class="grid grid-cols-24 p-2">
+                    <div class="col-span-12">
+                        <p class="text-center">Host:</p>
+                        <p>{{currentUserInfo.Username}}Ahmet</p>
+                        <p>{{currentUserInfo.Age}}30</p>
+                        <p>{{currentUserInfo.City}}İstanbul</p>
+                    </div>
+                    <div class="col-span-12 text-end">
+                        <p class="text-center">Stranger:</p>
+                        <p>{{currentUserInfo.Username}}Seda</p>
+                        <p>{{currentUserInfo.Age}}22</p>
+                        <p>{{currentUserInfo.City}}Mersin</p>
+                    </div>
+                </div>
+                <form [ngStyle]="{border: '1.5px solid lightgray'}" [formGroup]="sendMessageForm" class="grid grid-cols-24 border border-gray-900 grow p-2 ">
+                    <div class="col-span-24">
+                        <h4 [ngStyle]="{fontWeight:'600'}" class="text-gray-700">You are now chatting with a random stranger. Please be polite :{{")"}}</h4>
+                        <img [ngStyle]="{height:'10rem'}" src="/assets/chat/chat_pictures/chat1.jpg" width="100%" height="125"/>
+                        <p>Some chat here...</p>
+                    </div>
+                    <div class="col-span-24 flex justify-stretch self-end p-1">
+                        <button class="py-1 px-2" (click)="sendMessage()">Send message</button>
+                        <input class="text-black grow" formControlName="message" type="text" />
+                    </div>
                 </form>
             </div>
         </div>
