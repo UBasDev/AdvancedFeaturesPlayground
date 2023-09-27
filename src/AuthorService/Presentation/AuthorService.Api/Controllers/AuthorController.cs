@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Net.Mime;
@@ -430,6 +431,80 @@ namespace AuthorService.Api.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> Test19()
         {
+            var x1 = new DateTime();
+            var x2 = new DateTime(2023, 5, 15, 18, 25, 45, 880, kind: DateTimeKind.Utc);
+            var x3 = new DateTime(2023, 5, 15, 18, 25, 45, 880, kind: DateTimeKind.Local);
+            var x4 = DateTime.Now;
+            var x5 = DateTime.UtcNow;
+            var x6 = DateTime.MaxValue;
+            var x7 = DateTime.MinValue;
+            var x13 = DateTime.UnixEpoch;
+            var x14 = DateTime.Today;
+            var x8 = DateTime.Parse(s: x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: new CultureInfo(name: "tr-TR", useUserOverride: true), styles: DateTimeStyles.None);
+            var x81 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.GetCultureInfo("tr-TR"), styles: DateTimeStyles.None);
+            var x9 = DateTime.Compare(x2, x3);
+            var x10 = DateTime.DaysInMonth(2023, 10);
+            var x11 = DateTime.IsLeapYear(2022);
+            var x12 = DateTime.ParseExact(x2.ToString("dd/MM/yyyy HH:dd:ss"), format: "dd/MM/yyyy HH:dd:ss", provider: new CultureInfo("tr-TR", useUserOverride: true), style: DateTimeStyles.None);
+            var x121 = DateTime.ParseExact(x2.ToString("dd/MM/yyyy HH:dd:ss"), format: "dd/MM/yyyy HH:dd:ss", provider: CultureInfo.GetCultureInfo("tr-TR"), style: DateTimeStyles.None);
+            var x15 = DateTime.SpecifyKind(x2, DateTimeKind.Utc);
+            //var x16 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.InvariantCulture, styles: DateTimeStyles.None);
+            var x17 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.CurrentCulture, styles: DateTimeStyles.None);
+            var x18 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.GetCultureInfo("tr-TR"), styles: DateTimeStyles.None);
+            var x19 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.CurrentUICulture, styles: DateTimeStyles.None);
+            var x20 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.DefaultThreadCurrentCulture, styles: DateTimeStyles.None);
+            var x21 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.DefaultThreadCurrentUICulture, styles: DateTimeStyles.None);
+            var x22 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.InstalledUICulture, styles: DateTimeStyles.None);
+            var x23 = DateTime.Parse(x2.ToString("dd/MM/yyyy HH:dd:ss"), provider: CultureInfo.DefaultThreadCurrentUICulture, styles: DateTimeStyles.None);
+
+            var x24 = DateTime.Now;
+            var x25 = x24.AddMinutes(1);
+            var x26 = x24.AddHours(1);
+            var x27 = x24.Minute;
+            var x28 = x24.AddDays(1);
+            var x29 = x24.Hour;
+            var x30 = x24.Day;
+            var x31 = x24.Month;
+            var x32 = x24.Year;
+            var x33 = x24.DayOfWeek;
+            var x34 = x24.DayOfYear;
+            var x35 = x24.Add(new TimeSpan(2, 6, 25, 45, 880));
+            var x36 = x24.Add(TimeSpan.FromSeconds(1));
+            var x37 = x24.AddMilliseconds(800);
+            var x38 = x24.AddMonths(1);
+            var x39 = x24.AddSeconds(1);
+            var x40 = x24.AddTicks(100);
+            var x41 = x24.AddYears(1);
+            var x42 = x24.Subtract(TimeSpan.FromMinutes(1));
+            var x422 = x24.Subtract(new TimeSpan());
+            var x43 = x24.Subtract(DateTime.Now);
+            var x44 = x24.CompareTo(DateTime.Now);
+            var x45 = x24.Date;
+            var x46 = x24.TimeOfDay;
+            var x47 = x24.GetDateTimeFormats();
+            var x48 = x24.IsDaylightSavingTime();
+            var x49 = x24.Kind;
+            var x50 = x24.ToString("dd/MM/yyyy HH:dd:ss");
+            var x51 = x24.Second;
+            var x52 = x24.Ticks;
+            var x53 = x24.ToBinary();
+            var x54 = x24.Millisecond;
+            var x55 = x24.ToEpochTime();
+            var x56 = x24.ToFileTime();
+            var x57 = x24.ToFileTimeUtc();
+            var x58 = x24.ToLocalTime();
+            var x59 = x24.ToLongDateString();
+            var x60 = x24.ToLongTimeString();
+            var x61 = x24.ToOADate();
+            var x62 = x24.ToShortDateString();
+            var x63 = x24.ToShortTimeString();
+            var x64 = x24.ToUniversalTime();
+            return Ok();
+        }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> Test20()
+        {
+
             return Ok();
         }
     }
