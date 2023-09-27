@@ -505,6 +505,25 @@ namespace AuthorService.Api.Controllers
         public async Task<IActionResult> Test20()
         {
 
+            var x1 = TimeSpan.Zero;
+            var x2 = TimeSpan.FromSeconds(1);
+            var x3 = TimeSpan.FromMinutes(1);
+            var x4 = TimeSpan.FromHours(1);
+            var x5 = TimeSpan.FromDays(1);
+            var x6 = TimeSpan.FromTicks(1);
+            var x7 = TimeSpan.Compare(x1, x2);
+            var x8 = TimeSpan.FromMilliseconds(800);
+            var x9 = TimeSpan.MaxValue;
+            var x10 = TimeSpan.MinValue;
+            var x11 = TimeSpan.Parse(input: "3", formatProvider: CultureInfo.GetCultureInfo("tr-TR"));
+            var x12 = TimeSpan.TicksPerDay;
+            var x13 = TimeSpan.TicksPerSecond;
+            var x14 = TimeSpan.TicksPerHour;
+            var x15 = TimeSpan.TicksPerMillisecond;
+            var x16 = TimeSpan.TicksPerMinute;
+
+            var x17 = new TimeSpan(1);
+
             return Ok();
         }
     }
