@@ -1,9 +1,13 @@
 ﻿using AuthorService.Application.Attributes;
 using AuthorService.Application.Contexts;
 using AuthorService.Application.Enums;
+using AuthorService.Application.Extensions;
 using AuthorService.Application.Interfaces.Redis;
 using AuthorService.Application.Models;
+using AuthorService.Application.Models.Requests;
+using AuthorService.Application.Validations.Author;
 using AuthorService.Domain.Entities;
+using FluentValidation.Results;
 using Grpc.Net.Client;
 using IdentityModel;
 using Microservice1.protos;
@@ -525,6 +529,27 @@ namespace AuthorService.Api.Controllers
             var x17 = new TimeSpan(1);
 
             return Ok();
+        }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Test21([FromBody] CreateSingleAuthorRequest requestBody)
+        {
+            var validator = new CreateSingleAuthorRequestValidation();
+            ValidationResult result1 = await validator.ValidateAsync(requestBody);
+            if (!result1.IsValid)
+            {
+                List<FluentValidation.Results.ValidationFailure> failures = result1.Errors;
+                foreach (var currentFailure in failures)
+                {
+                    Console.WriteLine(currentFailure.PropertyName);
+                    Console.WriteLine(currentFailure.ErrorMessage);
+                    Console.WriteLine(currentFailure.ErrorCode);
+                    Console.WriteLine(currentFailure.AttemptedValue);
+                }
+                return BadRequest();
+            }
+
+            var addedAuthor = await _dbContext.AddAsync(new Author().CreateSingleAuthorRequestToAuthorMapper(requestBody));
+            return Ok(addedAuthor.Entity);
         }
     }
 }
