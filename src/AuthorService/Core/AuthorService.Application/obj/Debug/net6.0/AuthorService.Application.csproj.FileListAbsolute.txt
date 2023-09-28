@@ -12,17 +12,3 @@ D:\_personal_demos_\_.NET_Demos_\Microservice1\src\AuthorService\Core\AuthorServ
 D:\_personal_demos_\_.NET_Demos_\Microservice1\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\ref\AuthorService.Application.dll
 D:\_personal_demos_\_.NET_Demos_\Microservice1\src\AuthorService\Core\AuthorService.Application\bin\Debug\net6.0\AuthorService.Application.runtimeconfig.json
 D:\_personal_demos_\_.NET_Demos_\Microservice1\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.genruntimeconfig.cache
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\bin\Debug\net6.0\AuthorService.Application.deps.json
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\bin\Debug\net6.0\AuthorService.Application.runtimeconfig.json
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\bin\Debug\net6.0\AuthorService.Application.dll
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\bin\Debug\net6.0\AuthorService.Application.pdb
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.csproj.AssemblyReference.cache
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.GeneratedMSBuildEditorConfig.editorconfig
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.AssemblyInfoInputs.cache
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.AssemblyInfo.cs
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.csproj.CoreCompileInputs.cache
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.dll
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\refint\AuthorService.Application.dll
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.pdb
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\AuthorService.Application.genruntimeconfig.cache
-D:\_personal_demos_\_.NET_Demos_\Microservice2\src\AuthorService\Core\AuthorService.Application\obj\Debug\net6.0\ref\AuthorService.Application.dll

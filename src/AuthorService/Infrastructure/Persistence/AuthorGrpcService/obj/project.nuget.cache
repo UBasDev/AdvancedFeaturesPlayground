@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gBefsWZz4S7pxSwYaJ/7W7xnlZNEvHz7dNIXU1BeKaLk/PdCFzFJ46y06QJ2MhBBe5mYhdN2EMPvSH2er5jMLg==",
+  "dgSpecHash": "94Y9+IH6EvRT+URaufqXnLEB58R2ln3nUNUjrMeBAXqMURUFLDFnH84bxtQmkd5pudp1ltO6kPFm7W6MsOUklw==",
   "success": true,
   "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorGrpcService\\AuthorGrpcService.csproj",
   "expectedPackageFiles": [

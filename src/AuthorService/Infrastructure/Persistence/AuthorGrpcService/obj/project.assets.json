@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net7.0": {
       "Google.Protobuf/3.23.1": {
         "type": "package",
         "compile": {
@@ -23,10 +23,10 @@
           "Grpc.Tools": "2.56.0"
         },
         "compile": {
-          "lib/net6.0/_._": {}
+          "lib/net7.0/_._": {}
         },
         "runtime": {
-          "lib/net6.0/_._": {}
+          "lib/net7.0/_._": {}
         }
       },
       "Grpc.AspNetCore.Server/2.57.0": {
@@ -35,12 +35,12 @@
           "Grpc.Net.Common": "2.57.0"
         },
         "compile": {
-          "lib/net6.0/Grpc.AspNetCore.Server.dll": {
+          "lib/net7.0/Grpc.AspNetCore.Server.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Grpc.AspNetCore.Server.dll": {
+          "lib/net7.0/Grpc.AspNetCore.Server.dll": {
             "related": ".pdb;.xml"
           }
         },
@@ -55,12 +55,12 @@
           "Grpc.Net.ClientFactory": "2.56.0"
         },
         "compile": {
-          "lib/net6.0/Grpc.AspNetCore.Server.ClientFactory.dll": {
+          "lib/net7.0/Grpc.AspNetCore.Server.ClientFactory.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Grpc.AspNetCore.Server.ClientFactory.dll": {
+          "lib/net7.0/Grpc.AspNetCore.Server.ClientFactory.dll": {
             "related": ".pdb;.xml"
           }
         },
@@ -76,12 +76,12 @@
           "Grpc.Reflection": "2.57.0"
         },
         "compile": {
-          "lib/net6.0/Grpc.AspNetCore.Server.Reflection.dll": {
+          "lib/net7.0/Grpc.AspNetCore.Server.Reflection.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Grpc.AspNetCore.Server.Reflection.dll": {
+          "lib/net7.0/Grpc.AspNetCore.Server.Reflection.dll": {
             "related": ".pdb;.xml"
           }
         },
@@ -92,12 +92,12 @@
       "Grpc.AspNetCore.Web/2.57.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Grpc.AspNetCore.Web.dll": {
+          "lib/net7.0/Grpc.AspNetCore.Web.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Grpc.AspNetCore.Web.dll": {
+          "lib/net7.0/Grpc.AspNetCore.Web.dll": {
             "related": ".pdb;.xml"
           }
         },
@@ -125,12 +125,12 @@
           "Microsoft.Extensions.Logging.Abstractions": "3.0.3"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.Client.dll": {
+          "lib/net7.0/Grpc.Net.Client.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.Client.dll": {
+          "lib/net7.0/Grpc.Net.Client.dll": {
             "related": ".pdb;.xml"
           }
         }
@@ -142,12 +142,12 @@
           "Microsoft.Extensions.Http": "3.0.3"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.ClientFactory.dll": {
+          "lib/net7.0/Grpc.Net.ClientFactory.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.ClientFactory.dll": {
+          "lib/net7.0/Grpc.Net.ClientFactory.dll": {
             "related": ".pdb;.xml"
           }
         }
@@ -158,12 +158,12 @@
           "Grpc.Core.Api": "2.57.0"
         },
         "compile": {
-          "lib/net6.0/Grpc.Net.Common.dll": {
+          "lib/net7.0/Grpc.Net.Common.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Grpc.Net.Common.dll": {
+          "lib/net7.0/Grpc.Net.Common.dll": {
             "related": ".pdb;.xml"
           }
         }
@@ -351,7 +351,7 @@
       },
       "Microservice1.protos/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Grpc.AspNetCore": "2.56.0"
         },
@@ -842,7 +842,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
+    "net7.0": [
       "Grpc.AspNetCore >= 2.56.0",
       "Grpc.AspNetCore.Server.Reflection >= 2.57.0",
       "Grpc.AspNetCore.Web >= 2.57.0",
@@ -866,15 +866,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {
             "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj": {
               "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj"
@@ -889,8 +889,8 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "dependencies": {
           "Grpc.AspNetCore": {
             "target": "Package",

@@ -1,9 +1,9 @@
 ﻿using AuthorService.Application.Attributes;
 using AuthorService.Application.Contexts;
-using AuthorService.Application.Domain.Entity;
 using AuthorService.Application.Enums;
 using AuthorService.Application.Interfaces.Redis;
 using AuthorService.Application.Models;
+using AuthorService.Domain.Entities;
 using Grpc.Net.Client;
 using IdentityModel;
 using Microservice1.protos;
