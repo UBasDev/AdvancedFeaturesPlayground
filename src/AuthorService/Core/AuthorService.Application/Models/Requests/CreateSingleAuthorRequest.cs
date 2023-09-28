@@ -8,6 +8,7 @@ namespace AuthorService.Application.Models.Requests
 {
     public class CreateSingleAuthorRequest
     {
-
+        public string AuthorName { get; set; } = "";
+        public int Age { get; set; } = 0;
     }
 }
