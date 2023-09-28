@@ -1,4 +1,4 @@
-﻿using AuthorService.Application.Domain.Entity;
+﻿using AuthorService.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthorService.Application.Contexts

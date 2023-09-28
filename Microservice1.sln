@@ -51,7 +51,9 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ChatApplication", "src\Angu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChatApplicationServer", "ChatApplicationServer", "{EA1D8B12-3CD5-4C6E-A5DB-06387B88F43C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApplicationServer", "src\ChatApplicationServer\ChatApplicationServer\ChatApplicationServer.csproj", "{EEBA2FAE-9B88-45E4-8922-9A02F146B857}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatApplicationServer", "src\ChatApplicationServer\ChatApplicationServer\ChatApplicationServer.csproj", "{EEBA2FAE-9B88-45E4-8922-9A02F146B857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorService.Domain", "src\AuthorService\Core\AuthorService.Domain\AuthorService.Domain.csproj", "{61D2E42B-B109-420B-B52A-FB3A2B273838}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,10 @@ Global
 		{EEBA2FAE-9B88-45E4-8922-9A02F146B857}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEBA2FAE-9B88-45E4-8922-9A02F146B857}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEBA2FAE-9B88-45E4-8922-9A02F146B857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D2E42B-B109-420B-B52A-FB3A2B273838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D2E42B-B109-420B-B52A-FB3A2B273838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D2E42B-B109-420B-B52A-FB3A2B273838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D2E42B-B109-420B-B52A-FB3A2B273838}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{F6A9B871-3FB0-4930-9CCD-3B699A328C65} = {793E463D-263A-4967-B430-ECFC9F24707A}
 		{EA1D8B12-3CD5-4C6E-A5DB-06387B88F43C} = {B8BC5BC6-AE13-4B44-B123-9D52B5289FA6}
 		{EEBA2FAE-9B88-45E4-8922-9A02F146B857} = {EA1D8B12-3CD5-4C6E-A5DB-06387B88F43C}
+		{61D2E42B-B109-420B-B52A-FB3A2B273838} = {0BA64231-D94E-4B54-A7C8-75D444B8C374}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCCACAA9-B4DB-4C2E-9523-F6209997513F}
