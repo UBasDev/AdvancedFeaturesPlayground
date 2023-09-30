@@ -82,6 +82,7 @@ export class ChatService{
         })
     }
     async sendUserDataAfterLoginForQueueAndMatch(requestBody: IChatLoginRequestModel){
+        this.spinnerService.openSpinner()
         await this.globalSocketConnection.invoke("UserConnectedServerListener", requestBody)
     }
     async sendMessageToStrangerUser(message: string){

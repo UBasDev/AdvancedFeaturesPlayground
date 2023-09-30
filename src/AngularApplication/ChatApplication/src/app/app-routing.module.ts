@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { ChatComponent } from "./modules/chat/chat.component";
 import { ChatLoginComponent } from "./modules/chat/chat-login/chat-login.component";
 import { ChatHomepageComponent } from "./modules/chat/chat-homepage/chat-homepage.component";
+import { chatHomepageGuard } from "./guards/chat/chat-homepage.guard";
 
 const allRoutes: Routes = [
   {
@@ -15,7 +16,8 @@ const allRoutes: Routes = [
       },
       {
         path:'homepage',
-        component: ChatHomepageComponent
+        component: ChatHomepageComponent,
+        canActivate: [chatHomepageGuard]
       }
     ]
   }

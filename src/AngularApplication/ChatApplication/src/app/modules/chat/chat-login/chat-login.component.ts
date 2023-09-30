@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ChatLoginValidators } from './chat-login-validators/chat-login-validators';
 import { ChatService } from 'src/app/services/chat/ChatService';
 import { IChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
 import { Router } from '@angular/router';
-import { SpinnerService } from 'src/app/services/spinner/SpinnerService';
 
 interface IGenderOptions {
   id: number;
@@ -22,8 +21,7 @@ export class ChatLoginComponent {
     private readonly formBuilder: FormBuilder,
     private readonly chatLoginValidators: ChatLoginValidators,
     private readonly chatService: ChatService,
-    private readonly router:Router,
-    private readonly spinnerService: SpinnerService
+    private readonly router:Router
   ) {}
 
   public genderOptions: ReadonlyArray<IGenderOptions> = [
@@ -121,7 +119,6 @@ export class ChatLoginComponent {
   }
 
   async onChatLoginFormSubmit() {
-    this.spinnerService.openSpinner()
     await this.chatService.startSocketConnection();
     await this.chatService.addClientSideSocketListeners();
     const formValues = this.chatLoginForm.value;
