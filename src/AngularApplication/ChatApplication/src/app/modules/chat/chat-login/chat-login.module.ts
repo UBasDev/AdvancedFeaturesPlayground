@@ -9,9 +9,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [ChatLoginComponent],
-  imports: [CommonModule, ReactiveFormsModule, MatDividerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatButtonModule, AppRoutingModule],
+  imports: [CommonModule, ReactiveFormsModule, MatDividerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatButtonModule, AppRoutingModule, MatSnackBarModule],
 })
-export class ChatLoginModule {}
+export class ChatLoginModule {
+  
+}

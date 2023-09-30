@@ -135,3 +135,8 @@ option {
   font-weight: 800;
   font-style: italic;
 }
+.mat-mdc-snack-bar-container.custom-snackbar-color {
+  --mdc-snackbar-container-color: #3f51b5;
+  --mat-mdc-snack-bar-button-color: #fff;
+  --mdc-snackbar-supporting-text-color: #fff;
+}

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import {
+  CurrentChatInfoModel,
   IChatMessage,
   IUserInformation,
   UserInformation,
@@ -15,8 +16,9 @@ import { ISpinnerStateInitialState } from 'src/app/store/spinner/spinner.reducer
   templateUrl: './chat-homepage.component.html',
   styleUrls: ['./chat-homepage.component.css'],
 })
-export class ChatHomepageComponent implements OnInit {
+export class ChatHomepageComponent implements OnInit, OnDestroy {
   public currentUserInfo: UserInformation = new UserInformation();
+  public allJoinedUsers: Array<IUserInformation> = [];
   public componentFormInputKeys = {
     message: 'message',
   };
@@ -29,10 +31,14 @@ export class ChatHomepageComponent implements OnInit {
     private chatInfoStore: Store<{ globalChatInfo: IChatInfoInitialState }>,
     private spinnerStore: Store<{ globalSpinnerInfo: ISpinnerStateInitialState }>
   ) {}
+  ngOnDestroy(): void {
+    
+  }
   ngOnInit(): void {
     this.chatInfoStore
       .select('globalChatInfo')
       .subscribe((chatData: IChatInfoInitialState) => {
+        this.allJoinedUsers = chatData.currentChatInfo.Users;
         const currentUser: IUserInformation | undefined =
         chatData.currentChatInfo.Users.find(
             (currentUser) =>

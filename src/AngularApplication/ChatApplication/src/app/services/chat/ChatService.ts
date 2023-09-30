@@ -9,6 +9,9 @@ import { SendMessageToStrangerModel } from "src/app/models/chat/SendMessageToStr
 import { Store } from "@ngrx/store";
 import { IChatInfoInitialState } from "src/app/store/chat/chat_reducer";
 import { ChatActions } from "src/app/store/chat/chat.actions";
+import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { CustomSnackbarComponent } from "src/app/single-modules/custom-snackbar/custom-snackbar.component";
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +19,9 @@ import { ChatActions } from "src/app/store/chat/chat.actions";
 export class ChatService{
     constructor(
         private readonly spinnerService:SpinnerService,
-        private stateStore: Store<{ globalChatInfo: IChatInfoInitialState }>
+        private stateStore: Store<{ globalChatInfo: IChatInfoInitialState }>,
+        private readonly router:Router,
+        private readonly snackBarService: MatSnackBar
     ){}
     public globalSocketConnection!: SignalR.HubConnection;
     setSocketConnection(data1: SignalR.HubConnection){
@@ -66,6 +71,8 @@ export class ChatService{
                 
             }
             this.spinnerService.closeSpinner();
+            this.snackBarService.ngOnDestroy()
+            this.router.navigateByUrl("/homepage")
         })
         this.globalSocketConnection.on("ChatReceivedClientListener", (requestBody: IChatReceivedRequestModel)=>{
             const newMessage: IChatMessage = {
@@ -83,6 +90,17 @@ export class ChatService{
     }
     async sendUserDataAfterLoginForQueueAndMatch(requestBody: IChatLoginRequestModel){
         this.spinnerService.openSpinner()
+        this.snackBarService.openFromComponent(CustomSnackbarComponent, {
+            duration: 5000,
+            direction:'ltr',
+            horizontalPosition: "right",
+            verticalPosition: "bottom",
+            politeness: "polite",
+            panelClass: ['custom-snackbar-color'],
+            data: {
+                username: requestBody.Username
+            }
+          })
         await this.globalSocketConnection.invoke("UserConnectedServerListener", requestBody)
     }
     async sendMessageToStrangerUser(message: string){
@@ -95,5 +113,8 @@ export class ChatService{
             }
         })
         await this.globalSocketConnection.invoke("SendMessageToStrangerUserServerListener", requestToSend)
+    }
+    async endCurrentConnection(){
+        this.globalSocketConnection.stop()
     }
 }

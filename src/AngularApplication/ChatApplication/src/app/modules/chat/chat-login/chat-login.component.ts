@@ -4,6 +4,8 @@ import { ChatLoginValidators } from './chat-login-validators/chat-login-validato
 import { ChatService } from 'src/app/services/chat/ChatService';
 import { IChatLoginRequestModel } from 'src/app/models/chat/ChatLoginRequestModel';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CustomSnackbarComponent } from 'src/app/single-modules/custom-snackbar/custom-snackbar.component';
 
 interface IGenderOptions {
   id: number;
@@ -21,8 +23,16 @@ export class ChatLoginComponent {
     private readonly formBuilder: FormBuilder,
     private readonly chatLoginValidators: ChatLoginValidators,
     private readonly chatService: ChatService,
-    private readonly router:Router
+    private _snackBar: MatSnackBar
   ) {}
+
+  openSnackBar() {
+    
+  }
+
+  closeSnackBar() {
+    this._snackBar.ngOnDestroy()
+  }
 
   public genderOptions: ReadonlyArray<IGenderOptions> = [
     {
@@ -140,7 +150,6 @@ export class ChatLoginComponent {
         ] as string) ?? '',
     };
     await this.chatService.sendUserDataAfterLoginForQueueAndMatch(requestBodyToSend);
-    this.router.navigateByUrl("/homepage")
   }
   
 }
