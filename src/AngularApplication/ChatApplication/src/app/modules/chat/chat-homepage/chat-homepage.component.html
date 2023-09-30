@@ -7,17 +7,11 @@
             </div>
             <div class="col-span-14 flex flex-col items-stretch gap-y-2">
                 <div [ngStyle]="{border: '1.5px solid lightgray'}" class="grid grid-cols-24 p-2">
-                    <div class="col-span-12">
-                        <p class="text-center">Host:</p>
-                        <p>{{currentUserInfo.Username}}</p>
-                        <p>{{currentUserInfo.Age}}</p>
-                        <p>{{currentUserInfo.City}}</p>
-                    </div>
-                    <div class="col-span-12 text-end">
-                        <p class="text-center">Stranger:</p>
-                        <p>{{currentUserInfo.Username}}</p>
-                        <p>{{currentUserInfo.Age}}</p>
-                        <p>{{currentUserInfo.City}}</p>
+                    <div class="col-span-12" *ngFor="let currentUser of allJoinedUsers">
+                        <p class="text-center">{{currentUserInfo.ConnectionId == currentUser.ConnectionId ? "Host:" : "Stranger:"}}</p>
+                        <p><strong>*</strong> {{currentUser.Username}}</p>
+                        <p><strong>*</strong> {{currentUser.Age}}</p>
+                        <p><strong>*</strong> {{currentUser.City}}</p>
                     </div>
                 </div>
                 <form [ngStyle]="{border: '1.5px solid lightgray'}" [formGroup]="sendMessageForm" class="grid grid-cols-24 border border-gray-900 grow p-2 ">

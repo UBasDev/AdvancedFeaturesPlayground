@@ -4,6 +4,7 @@
     {
         public HashSet<ConnectedUserInformation> Users { get; set; } = new HashSet<ConnectedUserInformation>();
         public HashSet<ChatMessage> Messages { get; set; } = new HashSet<ChatMessage>();
+        public HashSet<string> JoinedUsersConnectionIdList { get; set; } = new HashSet<string>();
 
     }
     public class ConnectedUserInformation
