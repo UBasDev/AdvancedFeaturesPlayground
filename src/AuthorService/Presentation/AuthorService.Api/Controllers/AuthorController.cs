@@ -2,6 +2,7 @@
 using AuthorService.Application.Contexts;
 using AuthorService.Application.Enums;
 using AuthorService.Application.Extensions;
+using AuthorService.Application.Interfaces.Hangfire;
 using AuthorService.Application.Interfaces.Redis;
 using AuthorService.Application.Models;
 using AuthorService.Application.Models.Requests;
@@ -9,6 +10,7 @@ using AuthorService.Application.Validations.Author;
 using AuthorService.Domain.Entities;
 using FluentValidation.Results;
 using Grpc.Net.Client;
+using Hangfire;
 using IdentityModel;
 using Microservice1.protos;
 using Microsoft.AspNetCore.Authorization;
@@ -550,6 +552,14 @@ namespace AuthorService.Api.Controllers
 
             var addedAuthor = await _dbContext.AddAsync(new Author().CreateSingleAuthorRequestToAuthorMapper(requestBody));
             return Ok(addedAuthor.Entity);
+        }
+        [HttpGet("[action]")]
+        public bool Test22()
+        {
+            var jobId = BackgroundJob.Enqueue<ISyncAuthors>(job => job.Test1()); //1 kere bu jobı triggerlar. Fire and forget şeklindedir.
+
+            //var jobId2 = BackgroundJob.Schedule<ISyncAuthors>(methodCall: job => job.Test1(), delay: TimeSpan.FromMinutes(1));
+            return true;
         }
     }
 }

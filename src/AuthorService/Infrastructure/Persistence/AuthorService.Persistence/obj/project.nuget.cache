@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Yj4Gt5lV9waDCJvdHNWIh71SL+6NJiZ6NNMC7k+MbK6xu3sKbY30ZbToLR/Sl3Mt7SjrXScaxAIXVIQ5cfMn6Q==",
+  "dgSpecHash": "6C75YJVld6uNV6h62ftad/rnrBly04AJrLS8hFKjfQwDDTqB7w2uCfQW6Oef5u4ueniI9dtACEXAEiBMgqY4DQ==",
   "success": true,
   "projectFilePath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\AuthorService\\Infrastructure\\Persistence\\AuthorService.Persistence\\AuthorService.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\hangfire.core\\1.8.5\\hangfire.core.1.8.5.nupkg.sha512",
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\identitymodel\\6.2.0\\identitymodel.6.2.0.nupkg.sha512",
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.11\\microsoft.aspnetcore.authentication.jwtbearer.7.0.11.nupkg.sha512",
     "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.10\\microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
