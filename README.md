@@ -3,6 +3,7 @@
 -GrpcServer</br>
 -GrpcInterceptor</br>
 -Protos</br>
+-Hangfire with authorized dashboard</br>
 -CustomAttributes</br>
 -Custom extension mappers</br>
 -JWT</br>
