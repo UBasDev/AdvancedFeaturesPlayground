@@ -281,6 +281,9 @@
               },
               "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj": {
                 "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\Protos\\Microservice1.protos\\Microservice1.protos.csproj"
+              },
+              "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\RabbitMQ\\RabbitMQ\\RabbitMQ.csproj": {
+                "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\RabbitMQ\\RabbitMQ\\RabbitMQ.csproj"
               }
             }
           }
@@ -388,6 +391,79 @@
             "Grpc.AspNetCore": {
               "target": "Package",
               "version": "[2.56.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\RabbitMQ\\RabbitMQ\\RabbitMQ.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\RabbitMQ\\RabbitMQ\\RabbitMQ.csproj",
+        "projectName": "RabbitMQ",
+        "projectPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\RabbitMQ\\RabbitMQ\\RabbitMQ.csproj",
+        "packagesPath": "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\.nuget\\packages\\",
+        "outputPath": "D:\\_personal_demos_\\_.NET_Demos_\\Microservice2\\src\\RabbitMQ\\RabbitMQ\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Acer.LAPTOP-BQEAQ70A\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

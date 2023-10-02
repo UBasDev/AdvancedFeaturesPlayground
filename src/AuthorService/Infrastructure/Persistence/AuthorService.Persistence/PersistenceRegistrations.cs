@@ -38,7 +38,7 @@ namespace AuthorService.Persistence
             jobManager.AddOrUpdate(
                 "sync-authors",
                 Job.FromExpression(() => new SyncAuthors().Test1()),
-                "*/1 * * * *"
+                "*/50 * * * *"
                 );
         }
     }

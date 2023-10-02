@@ -21,6 +21,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Protos\Microservice1.protos\Microservice1.protos.csproj" />
+		<ProjectReference Include="..\..\..\RabbitMQ\RabbitMQ\RabbitMQ.csproj" />
 		<ProjectReference Include="..\..\Core\AuthorService.Application\AuthorService.Application.csproj" />
 		<ProjectReference Include="..\..\Infrastructure\Persistence\AuthorService.Persistence\AuthorService.Persistence.csproj" />
 	</ItemGroup>
