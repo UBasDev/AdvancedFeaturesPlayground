@@ -1,4 +1,5 @@
-﻿using AuthorService.Application.Attributes;
+﻿using AuthorService.Api.RabbitMQIntegrationEvents;
+using AuthorService.Application.Attributes;
 using AuthorService.Application.Contexts;
 using AuthorService.Application.Enums;
 using AuthorService.Application.Extensions;
@@ -20,7 +21,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 using Npgsql;
+using RabbitMQ;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -29,6 +32,7 @@ using System.Net;
 using System.Net.Mime;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace AuthorService.Api.Controllers
@@ -41,12 +45,14 @@ namespace AuthorService.Api.Controllers
         private readonly ApplicationDbContext _dbContext;
         private readonly IRedisCacheRepository1 _redisCacheRepository;
         private readonly HttpClient _httpClient;
-        public AuthorController(IHttpContextAccessor httpContextAccessor, ApplicationDbContext dbContext, IRedisCacheRepository1 redisCacheRepository, HttpClient httpClient)
+        private readonly IEventBus _eventBus;
+        public AuthorController(IHttpContextAccessor httpContextAccessor, ApplicationDbContext dbContext, IRedisCacheRepository1 redisCacheRepository, HttpClient httpClient, IEventBus eventBus)
         {
             _httpContextAccessor = httpContextAccessor;
             _dbContext = dbContext;
             _redisCacheRepository = redisCacheRepository;
             _httpClient = httpClient;
+            _eventBus = eventBus;
         }
         private RequestedUser RequestedUser
         {
@@ -671,6 +677,19 @@ namespace AuthorService.Api.Controllers
                 }
             };
             await connection1.ExecuteAsync(sql: insertQuery, param: authorsToAdd, commandTimeout: 300, commandType: CommandType.Text);
+        }
+        [HttpGet("[action]")]
+        public async Task Test27()
+        {
+            var authorToCreate1 = new Author()
+            {
+                AuthorName = "Author9",
+                Age = 9
+            };
+            var serializedAuthor1 = JsonSerializer.Serialize<Author>(authorToCreate1);
+            var customIntegrationEvent1 = new CustomIntegrationEvent1(serializedAuthor1);
+
+            _eventBus.Publish(customIntegrationEvent1);
         }
     }
 }

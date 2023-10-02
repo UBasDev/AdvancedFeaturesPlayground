@@ -1,4 +1,6 @@
 using AuthorService.Api.Controllers;
+using AuthorService.Api.RabbitMQIntegrationEventHandlers;
+using AuthorService.Api.RabbitMQIntegrationEvents;
 using AuthorService.Application;
 using AuthorService.Application.Contexts;
 using AuthorService.Application.Interfaces.Hangfire;
@@ -9,6 +11,7 @@ using Hangfire.Common;
 using Hangfire.PostgreSql;
 using HangfireBasicAuthenticationFilter;
 using Microsoft.Extensions.Configuration;
+using RabbitMQ;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,29 @@ builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddJwtAuth1(builder.Configuration);
 builder.Services.AddRedis1(builder.Configuration);
 builder.Services.AddHangfire1(builder.Configuration);
+// RABBITMQ
+builder.Services.AddTransient<CustomIntegrationEventHandler1>();
+builder.Services.AddSingleton<IEventBus>(sp => new EventBusRabbitMq(sp, new EventBusConfig
+{
+    DefaultTopicName = "MyProject1",
+    ConnectionRetryCount = 5,
+    EventNameSuffix = "IntegrationEvent1",
+    SubscriberClientAppName = "AuthorService1",
+    Connection = new
+    {
+        HostName = "localhost",
+        Port = 5672,
+        /*
+        UserName= "username1",
+        Password= "password1"
+        */
+    }
+}));
+ServiceProvider sp1 = builder.Services.BuildServiceProvider();
+IEventBus? eventBus1 = sp1.GetRequiredService<IEventBus>();
+eventBus1.Subscribe<CustomIntegrationEvent1, CustomIntegrationEventHandler1>();
+// RABBITMQ
+
 builder.Services.AddHangfire(options =>
 {
     options.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);
@@ -38,7 +64,7 @@ builder.Services.AddHangfire(options =>
 });
 builder.Services.AddHangfireServer(options =>
 {
-    options.WorkerCount = 8;
+    options.WorkerCount = 1;
     options.HeartbeatInterval = TimeSpan.FromSeconds(10);
 
 });
