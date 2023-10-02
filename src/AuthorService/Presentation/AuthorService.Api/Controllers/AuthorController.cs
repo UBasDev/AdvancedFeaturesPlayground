@@ -8,6 +8,7 @@ using AuthorService.Application.Models;
 using AuthorService.Application.Models.Requests;
 using AuthorService.Application.Validations.Author;
 using AuthorService.Domain.Entities;
+using Dapper;
 using FluentValidation.Results;
 using Grpc.Net.Client;
 using Hangfire;
@@ -19,12 +20,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using Npgsql;
+using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Net.Mime;
 using System.Security.Claims;
 using System.Text;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace AuthorService.Api.Controllers
 {
@@ -560,6 +565,112 @@ namespace AuthorService.Api.Controllers
 
             //var jobId2 = BackgroundJob.Schedule<ISyncAuthors>(methodCall: job => job.Test1(), delay: TimeSpan.FromMinutes(1));
             return true;
+        }
+        [HttpGet("[action]")]
+        public async Task<List<Author>> Test23()
+        {
+            var response1 = new List<Author>();
+            await using var connection1 = new SqlConnection("Server=.;Database=NET2;User Id=postgres;Password=admin;");
+            await connection1.OpenAsync();
+            await using var command1 = new SqlCommand
+            (
+                $"SELECT * FROM Authors",
+                connection1
+            );
+            command1.CommandTimeout = 300;
+            var dataTable1 = new DataTable();
+            using var adapter1 = new SqlDataAdapter(command1);
+            adapter1.Fill(dataTable1);
+            foreach (DataRow currentRow1 in dataTable1.Rows)
+            {
+                var currentObject1 = new Author();
+                currentObject1.Id = currentRow1.IsNull("Id") ? 0 : Convert.ToInt32(currentRow1["Id"]);
+                currentObject1.AuthorName = currentRow1.IsNull("AuthorName") ? "" : currentRow1["AuthorName"].ToString();
+                currentObject1.Age = currentRow1.IsNull("Age") ? 0 : Convert.ToInt32(currentRow1["Age"]);
+                response1.Add(currentObject1);
+            }
+            return response1;
+        }
+        [HttpGet("[action]")]
+        public async Task<List<Author>> Test24()
+        {
+            var response1 = new List<Author>();
+            await using var connection1 = new NpgsqlConnection("User ID = postgres; Password = admin; Server = localhost; Port = 5432; Database = NET2; Integrated Security = true; Pooling = true; Connection Lifetime = 0;");
+            await connection1.OpenAsync();
+            await using var command1 = new NpgsqlCommand(
+                $"SELECT * FROM \"Authors\"",
+                connection1
+            );
+            command1.CommandTimeout = 300;
+            var dataTable1 = new DataTable();
+            using var adapter1 = new NpgsqlDataAdapter(command1);
+            adapter1.Fill(dataTable1);
+            foreach (DataRow currentRow1 in dataTable1.Rows)
+            {
+                var currentObject1 = new Author();
+                currentObject1.Id = currentRow1.IsNull("Id") ? 0 : Convert.ToInt32(currentRow1["Id"]);
+                currentObject1.AuthorName = currentRow1.IsNull("AuthorName") ? "" : currentRow1["AuthorName"].ToString();
+                currentObject1.Age = currentRow1.IsNull("Age") ? 0 : Convert.ToInt32(currentRow1["Age"]);
+                response1.Add(currentObject1);
+            }
+            return response1;
+        }
+        [HttpGet("[action]")]
+        public async Task<List<Author>> Test25()
+        {
+            var response1 = new List<Author>();
+            await using var connection1 = new NpgsqlConnection("User ID = postgres; Password = admin; Server = localhost; Port = 5432; Database = NET2; Integrated Security = true; Pooling = true; Connection Lifetime = 0;");
+            await connection1.OpenAsync();
+            await using var command1 = new NpgsqlCommand(
+                $"SELECT * FROM \"Authors\"",
+                connection1
+            );
+            command1.CommandTimeout = 300;
+            await using var currentRow1 = await command1.ExecuteReaderAsync();
+            while (await currentRow1.ReadAsync())
+            {
+                var currentObject1 = new Author();
+                currentObject1.Id = await currentRow1.IsDBNullAsync("Id") ? 0 : Convert.ToInt32(currentRow1["Id"]);
+                currentObject1.AuthorName = await currentRow1.IsDBNullAsync("AuthorName") ? "" : currentRow1["AuthorName"].ToString();
+                currentObject1.Age = await currentRow1.IsDBNullAsync("Age") ? 0 : Convert.ToInt32(currentRow1["Age"]);
+                response1.Add(currentObject1);
+            }
+            return response1;
+        }
+        [HttpGet("[action]")]
+        public async Task Test26()
+        {
+            await using var connection1 = new NpgsqlConnection("User ID = postgres; Password = admin; Server = localhost; Port = 5432; Database = NET2; Integrated Security = true; Pooling = true; Connection Lifetime = 0;");
+            await connection1.OpenAsync();
+            var insertQuery = @"
+                INSERT INTO ""Authors""
+                (
+                    ""AuthorName"", ""Age""
+                )
+                VALUES
+                (
+                    @AuthorName, @Age
+                )
+            ";
+            var authorsToAdd = new List<Author>()
+            {
+                new()
+                {
+                    AuthorName = "Author5",
+                    Age = 5
+                },
+                new()
+                {
+                    AuthorName = "Author5",
+                    Age = 6
+                },
+                new()
+                {
+                    AuthorName = "Author5",
+                    Age = 7
+                }
+            };
+            await connection1.ExecuteAsync(sql: insertQuery, param: authorsToAdd, commandTimeout: 300, commandType: CommandType.Text);
         }
     }
 }
