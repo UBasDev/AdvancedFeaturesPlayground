@@ -1,4 +1,5 @@
-﻿using AuthorService.Domain.Entities;
+﻿using AuthorService.Application.Interceptors;
+using AuthorService.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthorService.Application.Contexts
@@ -18,6 +19,7 @@ namespace AuthorService.Application.Contexts
                 optionsBuilder.UseNpgsql("User ID = postgres; Password = admin; Server = localhost; Port = 5432; Database = NET2; Integrated Security = true; Pooling = true; Connection Lifetime = 0;",
                     m => { m.EnableRetryOnFailure(); });
             }
+            optionsBuilder.AddInterceptors(new CustomDbInterceptor1());
         }
     }
 }
