@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 
 namespace BookService.Api
 {
-    public class CustomInterceptor1 : Attribute, IAsyncResultFilter
+    public class CustomInterceptors : Attribute, IAsyncResultFilter
     {
         private List<string> RequiredRoles { get; set; } = new List<string>();
-        public CustomInterceptor1(params string[] requiredRoles)
+        public CustomInterceptors(params string[] requiredRoles)
         {
             foreach (var currentRole in requiredRoles)
             {
